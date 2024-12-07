@@ -1,12 +1,8 @@
 <?php 
 
-class RegisterModel {
+require_once __DIR__ . '/../Model.php';
 
-    private $db;
-
-    public function __construct() {
-        $this->db = include_once __DIR__ . '/../core/db_config.php';
-    }
+class RegisterModel extends Model {
 
     public function register(string $userId, string $email, string $password, string $fileName, string $imageData) {
         $hashedPassword = hash('sha256', $password); // Gunakan password_hash untuk produksi

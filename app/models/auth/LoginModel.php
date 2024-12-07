@@ -1,11 +1,8 @@
 <?php 
 
-class LoginModel {
-    private $db;
+require_once __DIR__ . '/../Model.php';
 
-    public function __construct() {
-        $this->db = include_once __DIR__ . '/../core/db_config.php';
-    }
+class LoginModel extends Model {
 
     public function authenticate($userId, $password) : array|bool 
     {
