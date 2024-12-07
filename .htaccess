@@ -1,0 +1,9 @@
+Options -Indexes
+RewriteEngine On
+
+# Abaikan permintaan ke file atau folder yang ada secara fisik
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Arahkan semua permintaan ke index.php
+RewriteRule ^(.*)$ index.php?url=$1 [L]
