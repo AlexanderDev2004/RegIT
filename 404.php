@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div class="Back">
-                    <a href="/khip-mvc/" class="btn btn-primary">Kembali</a>
+                    <a href=<?=BASE_URL?> class="btn btn-primary">Kembali</a>
                 </div>
             </div>
         </div>

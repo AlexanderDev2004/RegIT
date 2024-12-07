@@ -28,20 +28,20 @@ class LoginController
 
                 // Redirect berdasarkan role
                 if ($user['role'] === 'mahasiswa') {
-                    header("Location: " . BASE_URL . "/dashboard/mahasiswa");
+                    header("Location: " . BASE_URL . "/mahasiswa/dashboard");
                 } else if ($user['role'] === 'pegawai') {
                     switch ($userModel->getRoleUser($username)) {
                         case 'Dosen':
-                            header("Location: " . BASE_URL . "/dashboard/dosen");
+                            header("Location: " . BASE_URL . "/dosen/dashboard");
                             break;
                         case 'DPA':
-                            header("Location: " . BASE_URL . "/dashboard/dpa");
+                            header("Location: " . BASE_URL . "/dpa/dashboard");
                             break;
                         case 'Komisi Disiplin':
-                            header("Location: " . BASE_URL . "/dashboard/komdis");
+                            header("Location: " . BASE_URL . "/komdis/dashboard");
                             break;
                         case 'Administrator':
-                            header("Location: " . BASE_URL . "/dashboard/admin");
+                            header("Location: " . BASE_URL . "/admin/dashboard");
                             break;
                     }
                 } else {
