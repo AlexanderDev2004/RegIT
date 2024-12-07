@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+namespace app\models;
 class RegisterModel {
     private $conn;
 
