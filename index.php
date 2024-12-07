@@ -63,24 +63,24 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
             break;
     }
 } else if (count($urlSegments) === 2) {
-    // Kondisi jika routenya memiliki 2 segmen (ex: dashboard/mahasiswa)
-    if($urlSegments[0] === 'dashboard' && $urlSegments[1] === 'mahasiswa') {
+    // Kondisi jika routenya memiliki 2 segmen (ex: mahasiswa/dashboard)
+    if($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/mahasiswa/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
-    } else if ($urlSegments[0] === 'dashboard' && $urlSegments[1] === 'dpa') {
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/dpa/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
-    } else if ($urlSegments[0] === 'dashboard' && $urlSegments[1] === 'dosen') {
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/dosen/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
-    } else if ($urlSegments[0] === 'dashboard' && $urlSegments[1] === 'komdis') {
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/komdis/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
-    } else if ($urlSegments[0] === 'dashboard' && $urlSegments[1] === 'admin') {
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/admin/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
