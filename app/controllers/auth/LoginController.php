@@ -1,6 +1,6 @@
 <?php
 
-require_once './app/models/UserModel.php';
+require_once './app/models/auth/LoginModel.php';
 
 class LoginController
 {
@@ -18,8 +18,8 @@ class LoginController
             $password = $_POST['password'];
 
             // Panggil model untuk memverifikasi kredensial
-            $userModel = new UserModel();
-            $user = $userModel->authenticate($username, $password);
+            $loginModel = new LoginModel();
+            $user = $loginModel->authenticate($username, $password);
 
             if ($user) {
                 // Jika berhasil login, buat sesi
@@ -30,7 +30,7 @@ class LoginController
                 if ($user['role'] === 'mahasiswa') {
                     header("Location: " . BASE_URL . "/mahasiswa/dashboard");
                 } else if ($user['role'] === 'pegawai') {
-                    switch ($userModel->getRoleUser($username)) {
+                    switch ($loginModel->getRoleUser($username)) {
                         case 'Dosen':
                             header("Location: " . BASE_URL . "/dosen/dashboard");
                             break;

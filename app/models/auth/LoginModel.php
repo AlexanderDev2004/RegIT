@@ -1,19 +1,20 @@
 <?php 
 
-class UserModel {
+class LoginModel {
     private $db;
 
     public function __construct() {
         $this->db = include_once __DIR__ . '/../core/db_config.php';
     }
 
-    public function authenticate($username, $password) {
+    public function authenticate($userId, $password) : array|bool 
+    {
         // Hash password untuk verifikasi
         $hashedPassword = hash('sha256', $password); // Gunakan password_hash untuk produksi
 
         // Cek login mahasiswa
         $sqlMahasiswa = "EXEC GetLoginMahasiswa @Nim = ?, @Password = ?";
-        $stmtMahasiswa = sqlsrv_prepare($this->db, $sqlMahasiswa, array($username, $hashedPassword));
+        $stmtMahasiswa = sqlsrv_prepare($this->db, $sqlMahasiswa, array($userId, $hashedPassword));
 
         if ($stmtMahasiswa && sqlsrv_execute($stmtMahasiswa)) {
             $resultMahasiswa = sqlsrv_fetch_array($stmtMahasiswa, SQLSRV_FETCH_ASSOC);
@@ -21,20 +22,20 @@ class UserModel {
             $resultMahasiswa['response'] = filter_var($resultMahasiswa['response'], FILTER_VALIDATE_BOOLEAN);
 
             if ($resultMahasiswa['response']) {
-                return ['user_id' => $username, 'role' => 'mahasiswa'];
+                return ['user_id' => $userId, 'role' => 'mahasiswa'];
             }
         }
 
         // Cek login pegawai
         $sqlPegawai = "EXEC GetLoginPegawai @IdPegawai = ?, @Password = ?";
-        $stmtPegawai = sqlsrv_prepare($this->db, $sqlPegawai, array($username, $hashedPassword));
+        $stmtPegawai = sqlsrv_prepare($this->db, $sqlPegawai, array($userId, $hashedPassword));
 
         if ($stmtPegawai && sqlsrv_execute($stmtPegawai)) {
             $resultPegawai = sqlsrv_fetch_array($stmtPegawai, SQLSRV_FETCH_ASSOC);
             $resultPegawai['response'] = filter_var($resultPegawai['response'], FILTER_VALIDATE_BOOLEAN);
 
             if ($resultPegawai['response']) {
-                return ['user_id' => $username, 'role' => 'pegawai'];
+                return ['user_id' => $userId, 'role' => 'pegawai'];
             }
         }
 
