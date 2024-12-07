@@ -13,4 +13,6 @@ if (!$conn) {
 
 // Kembalikan koneksi untuk digunakan di model atau controller
 return $conn;
+
+
 ?>
