@@ -72,6 +72,14 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/mahasiswa/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
+    } else if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/mahasiswa/PelanggaranController.php';
+        $controller = new PelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/mahasiswa/ProfilMahasiswaController.php';
+        $controller = new ProfilMahasiswaController(); 
+        $controller->index();
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/dpa/BerandaController.php';
         $controller = new BerandaController();
