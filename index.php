@@ -14,6 +14,10 @@ if (isset($_GET['url'])) {
     $urlSegments = []; // Jika URL kosong
 }
 
+// jika url salah atau tidak ada maka akan muncul halaman 404
+if (empty($urlSegments)) {
+    header('Location: ./404');
+}
 
 // Routing sederhana
 // if (empty($urlSegments)) {
