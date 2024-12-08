@@ -68,6 +68,14 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/mahasiswa/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
+    } else if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/mahasiswa/PelanggaranController.php';
+        $controller = new PelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/mahasiswa/ProfilMahasiswaController.php';
+        $controller = new ProfilMahasiswaController(); 
+        $controller->index();
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/dpa/BerandaController.php';
         $controller = new BerandaController();
@@ -94,69 +102,4 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
     require_once './app/controllers/not_found/NotFoundController.php';
     $controller = new NotFoundController();
     $controller->index();
-}
-
-// ini untuk mengambil controller, method, dan id dari query string untuk pelanggaran mahasiswa
-$controller = $_get['controller'] ?? 'pelanggaran';
-$method = $_get['method'] ?? 'index';
-$id = $_get['id'] ?? null;
-
-// Path file controller
-$controllerPath = './app/controller/mahasiswa/' . ucfirst($controller) . 'Controller.php';
-
-// Cek apakah file controller ada
-if (file_exists($controllerPath)) {
-    // Jika ada, maka load file controller
-    require_once $controllerPath;
-    // Jika ada, maka load file model
-    require_once './app/models/mahasiswa/' . ucfirst($controller) . 'Model.php';
-    // Jika ada, maka load file view
-    require_once './app/views/mahasiswa/' . ucfirst($controller) . '.php';
-    // Jika ada, maka load file view
-    require_once './app/views/components/Header.php';
-    // Jika ada, maka load file view
-    require_once './app/views/components/Footer.php';
-    // Jika ada, maka load file view
-    require_once './app/views/components/Sidebar.php';
-
-    // Instansiasi class controller
-    $controller = new $controller();
-    // Memanggil method controller
-    $controller->$method();
-} else {
-    // Jika tidak ada, maka redirect ke halaman 404
-    header('Location: ./404');
-}
-
-
-//  ini untuk mengambil controller, method, dan id dari query string untuk profil mahasiswa
-$controller = $_get['controller'] ?? 'profil_mahasiswa';
-$method = $_get['method'] ?? 'index';
-$id = $_get['id'] ?? null;
-
-// Path file controller
-$controllerPath = './app/controller/mahasiswa/' . ucfirst($controller) . 'Controller.php';
-
-// Cek apakah file controller ada
-if (file_exists($controllerPath)) {
-    // Jika ada, maka load file controller
-    require_once $controllerPath;
-    // Jika ada, maka load file model
-    require_once './app/models/mahasiswa/' . ucfirst($controller) . 'Model.php';
-    // Jika ada, maka load file view
-    require_once './app/views/mahasiswa/' . ucfirst($controller) . '.php';
-    // Jika ada, maka load file view
-    require_once './app/views/components/Header.php';
-    // Jika ada, maka load file view
-    require_once './app/views/components/Footer.php';
-    // Jika ada, maka load file view
-    require_once './app/views/components/Sidebar.php';
-
-    // Instansiasi class controller
-    $controller = new $controller();
-    // Memanggil method controller
-    $controller->$method();
-} else {
-    // Jika tidak ada, maka redirect ke halaman 404
-    header('Location: ./404');
 }
