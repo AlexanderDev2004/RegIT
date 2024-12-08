@@ -1,5 +1,5 @@
 <?php
-require_once './app/models/RegisterModel.php';
+require_once './app/models/auth/RegisterModel.php';
 
 class RegisterController {
     public function index() {

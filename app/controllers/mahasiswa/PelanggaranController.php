@@ -1,6 +1,6 @@
 <?php
 
-require_once './app/model/mahasiswa/PelanggaranModel.php'; // Include model
+require_once './app/models/mahasiswa/PelanggaranModel.php'; // Include model
 
 class PelanggaranController {
 

@@ -7,6 +7,8 @@ class LoginController
 
     public function index()
     {
+        session_start();
+
         // Mengecek jika pengguna sudah login
         // if (isset($_SESSION['user_id'])) {
         //     header('Location: dashboard'); // redirect ke dashboard jika sudah login
@@ -22,14 +24,16 @@ class LoginController
             $user = $loginModel->authenticate($username, $password);
 
             if ($user) {
-                // Jika berhasil login, buat sesi
-                $_SESSION['user_id'] = $user['user_id'];
-                $_SESSION['role'] = $user['role'];
-
                 // Redirect berdasarkan role
                 if ($user['role'] === 'mahasiswa') {
+                    // Jika berhasil login, buat sesi
+                    $_SESSION['nim'] = $user['user_id'];
+                    $_SESSION['role'] = $user['role'];
                     header("Location: " . BASE_URL . "/mahasiswa/dashboard");
                 } else if ($user['role'] === 'pegawai') {
+                    // Jika berhasil login, buat sesi
+                    $_SESSION['id_pegawai'] = $user['user_id'];
+                    $_SESSION['role'] = $user['role'];
                     switch ($loginModel->getRoleUser($username)) {
                         case 'Dosen':
                             header("Location: " . BASE_URL . "/dosen/dashboard");
