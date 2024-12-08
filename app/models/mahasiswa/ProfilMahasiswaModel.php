@@ -1,21 +1,33 @@
 <?php
-class MahasiswaModel {
-    private $db;
 
-    public function __construct() {
-        $this->db = new Database(); // Pastikan kelas Database terkoneksi dengan SQL Server
-    }
+require_once __DIR__ . '/../Model.php';
 
+class ProfilMahasiswaModel extends Model {
     public function getProfilMahasiswaByNIM($nim) {
-        $query = "SELECT m.nim, m.nama, p.nama_prodi, k.nama_kelas, m.angkatan, sm.status 
-                  FROM mahasiswa m
-                  JOIN prodi p ON m.prodi_id = p.id
-                  JOIN kelas k ON m.kelas_id = k.id
-                  JOIN status_mahasiswa sm ON m.status_id = sm.id
-                  WHERE m.nim = :nim";
-        $this->db->query($query);
-        $this->db->bind(':nim', $nim);
+        // Query SQL
+        $query = "SELECT nim, nama_prodi, nama_mahasiswa, nama_kelas, angkatan, status_mahasiswa
+                FROM mahasiswa AS m
+                INNER JOIN prodi AS p ON m.id_prodi = p.id_prodi
+                INNER JOIN kelas AS k ON m.id_kelas = k.id_kelas
+                INNER JOIN status_mahasiswa AS sm ON m.id_status_mhs = sm.id_status_mahasiswa
+                WHERE nim = ?";
+        
+        // Eksekusi query dengan sqlsrv_prepare dan sqlsrv_execute
+        $stmt = sqlsrv_prepare($this->db, $query, [$nim]);
+        if (!$stmt) {
+            die("Error preparing statement: " . print_r(sqlsrv_errors(), true));
+        }
 
-        return $this->db->single(); // Ambil satu baris data
+        if (!sqlsrv_execute($stmt)) {
+            die("Error executing query: " . print_r(sqlsrv_errors(), true));
+        }
+
+        // Ambil satu baris hasil query
+        $result = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+        if (!$result) {
+            return null; // Tidak ditemukan
+        }
+
+        return $result;
     }
 }
