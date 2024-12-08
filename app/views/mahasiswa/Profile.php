@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <script>
     tailwind.config = {
@@ -46,46 +46,47 @@
         <!-- Edit Password -->
         <div class="flex flex-end justify-end">
             <a href="ubahPassword.php" class="w-48 bg-[#132145] text-white py-2 px-4 rounded-md hover:bg-blue-700 flex items-center">
-            <i class="fa-solid fa-pen pl-0 pr-2"></i>
-            <span class="pl-2">Ubah Password</span>
+                <i class="fa-solid fa-pen pl-0 pr-2"></i>
+                <span class="pl-2">Ubah Password</span>
             </a>
         </div>
         <!-- Edit Button End -->
         <div class="overflow-x-auto grid grid-cols-2 gap-x-0 gap-y-8">
-            <div>
-                <span class="font-bold text-[#132145]">NIM</span>
-                <p>2341720220</p>
-            </div>
-            <div>
-                <span class="font-bold text-[#132145]">Nama Prodi</span>
-                <p>DIV Teknik Informatika</p>
-            </div>
-            <div>
-                <span class="font-bold text-[#132145]">Nama</span>
-                <p>Fiera Ziadattun Nisa'</p>
-            </div>
-            <div>
-                <span class="font-bold text-[#132145]">Nama Kelas</span>
-                <p>2H</p>
-            </div>
-            <div>
-                <span class="font-bold text-[#132145]">Angkatan</span>
-                <p>2023</p>
-            </div>
-            <div>
-                <span class="font-bold text-[#132145] ">Status Mahasiswa</span>
-                <p>Aktif</p>
-            </div>
+    <div>
+        <span class="font-bold text-[#132145]">NIM</span>
+        <p><?= htmlspecialchars($data['profil']['nim'] ?? 'Data tidak tersedia'); ?></p>
+    </div>
+    <div>
+        <span class="font-bold text-[#132145]">Nama Prodi</span>
+        <p><?= htmlspecialchars($data['profil']['nama_prodi'] ?? 'Data tidak tersedia'); ?></p>
+    </div>
+    <div>
+        <span class="font-bold text-[#132145]">Nama</span>
+        <p><?= htmlspecialchars($data['profil']['nama'] ?? 'Data tidak tersedia'); ?></p>
+    </div>
+    <div>
+        <span class="font-bold text-[#132145]">Nama Kelas</span>
+        <p><?= htmlspecialchars($data['profil']['nama_kelas'] ?? 'Data tidak tersedia'); ?></p>
+    </div>
+    <div>
+        <span class="font-bold text-[#132145]">Angkatan</span>
+        <p><?= htmlspecialchars($data['profil']['angkatan'] ?? 'Data tidak tersedia'); ?></p>
+    </div>
+    <div>
+        <span class="font-bold text-[#132145]">Status Mahasiswa</span>
+        <p><?= htmlspecialchars($data['profil']['status'] ?? 'Data tidak tersedia'); ?></p>
+    </div>
+</div>
+
 
             <!-- Logout Button -->
             <div class="flex mt-6 ">                
-            <a href="../loginPage.php" class="flex flex-row bg-red-500 w-28 text-white py-2  rounded-md hover:bg-red-600 px-auto">
-            <img src="../../public/logout.svg" alt="" class="ml-2">
-                <span class="ml-4">Keluar</span>
-            </a>
+                <a href="../loginPage.php" class="flex flex-row bg-red-500 w-28 text-white py-2 rounded-md hover:bg-red-600 px-auto">
+                    <img src="../../public/logout.svg" alt="" class="ml-2">
+                    <span class="ml-4">Keluar</span>
+                </a>
             </div>
             <!-- Logout Button End -->
-            
         </div>
     </div>
     <!-- Profile End -->

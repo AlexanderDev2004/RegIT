@@ -9,7 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <script>
     tailwind.config = {
@@ -28,15 +28,15 @@
 </head>
 <body class="bg-[#EBEEF5] scale font-poppins">
     <!-- Header -->
-    <?php include "components/Header.php"?>
+    <?php include "components/Header.php" ?>
     <!-- Header End -->
 
     <!-- SideBar -->
-    <?php include "components/Sidebar.php"?>
+    <?php include "components/Sidebar.php" ?>
     <!-- Sidebar End -->
 
     <!-- Content -->
-    <div id="Pelanggaran" class=" flex justify-center pt-8 ">
+    <div id="Pelanggaran" class="flex justify-center pt-8">
         <p class="font-bold text-3xl flex text-center items-center text-[#132145] py-auto pl-64 mb-8 flex flex-col justify-center">Tabel Pelanggaran</p>
     </div>
     <!-- Content End -->
@@ -57,42 +57,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white">
-                        <td class="border border-[#132145] px-4 py-2 text-center">1</td>
-                        <td class="border border-[#132145] px-4 py-2">12-11-2024</td>
-                        <td class="border border-[#132145] px-4 py-2">Berk komunikasi dengan tidak sopan kepada mahasiswa, dosen, atau karyawan</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">V</td>
-                        <td class="border border-[#132145] px-4 py-2">Teguran lisan disertai surat pernyataan bermaterai yang ditandatangani mahasiswa dan DPA</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">12-11-2024</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">Selesai</td>
-                    </tr>
-                    <tr class="bg-[#F9FAFB]">
-                        <td class="border border-[#132145] px-4 py-2 text-center">2</td>
-                        <td class="border border-[#132145] px-4 py-2">12-11-2024</td>
-                        <td class="border border-[#132145] px-4 py-2">Berbusana tidak sopan dan tidak rapi (misalnya memakai kaos tidak berkerah, rok mini, sandal, dll)</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">IV</td>
-                        <td class="border border-[#132145] px-4 py-2">Teguran tertulis, pemanggilan orang tua/wali, serta surat pernyataan tidak mengulangi bermaterai</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">-</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">Belum Selesai</td>
-                    </tr>
-                    <tr class="bg-white">
-                        <td class="border border-[#132145] px-4 py-2 text-center">3</td>
-                        <td class="border border-[#132145] px-4 py-2">12-11-2024</td>
-                        <td class="border border-[#132145] px-4 py-2">Tidak menjaga kebersihan di seluruh area Polinema</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">III</td>
-                        <td class="border border-[#132145] px-4 py-2">Surat pernyataan, tugas khusus seperti membersihkan area tertentu</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">12-11-2024</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">Selesai</td>
-                    </tr>
-                    <tr class="bg-[#F9FAFB]">
-                        <td class="border border-[#132145] px-4 py-2 text-center">4</td>
-                        <td class="border border-[#132145] px-4 py-2">12-11-2024</td>
-                        <td class="border border-[#132145] px-4 py-2">Mengakses materi pornografi di kelas atau area kampus</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">I</td>
-                        <td class="border border-[#132145] px-4 py-2">Penggantian kerugian dan tugas layanan sosial</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">-</td>
-                        <td class="border border-[#132145] px-4 py-2 text-center">Belum Selesai</td>
-                    </tr>
+                    <?php if (!empty($data['pelanggaran'])): ?>
+                        <?php $no = 1; foreach ($data['pelanggaran'] as $bulan => $jumlah): ?>
+                            <tr class="bg-white">
+                                <td class="border border-[#132145] px-4 py-2 text-center"><?= $no++; ?></td>
+                                <td class="border border-[#132145] px-4 py-2"><?= $bulan; ?></td>
+                                <td class="border border-[#132145] px-4 py-2"><?= $jumlah; ?></td>
+                                <td class="border border-[#132145] px-4 py-2 text-center">-</td>
+                                <td class="border border-[#132145] px-4 py-2">-</td>
+                                <td class="border border-[#132145] px-4 py-2 text-center">-</td>
+                                <td class="border border-[#132145] px-4 py-2 text-center">-</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="7" class="border border-[#132145] px-4 py-2 text-center">Tidak ada data pelanggaran.</td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -100,7 +81,7 @@
     <!-- Table End -->
 
     <!-- Footer -->
-     <?php include "../components/Footer.php"?>
+    <?php include "../components/Footer.php" ?>
     <!-- Footer End -->
 </body>
 </html>
