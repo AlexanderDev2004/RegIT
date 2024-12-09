@@ -84,6 +84,18 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/dosen/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'form') {
+        require_once './app/controllers/dosen/FormController.php';
+        $controller = new FormController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/dosen/PelanggaranController.php';
+        $controller = new PelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/dosen/ProfilController.php';
+        $controller = new ProfilController();
+        $controller->index();
     } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/komdis/BerandaController.php';
         $controller = new BerandaController();
@@ -103,11 +115,24 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/mahasiswa/EditProfilController.php';
         $controller = new EditProfilController();
         $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/dosen/EditProfilController.php';
+        $controller = new EditProfilController();
+        $controller->index();
     } else {
         require_once './app/controllers/not_found/NotFoundController.php';
         $controller = new NotFoundController();
         $controller->index();
-
+    }
+} else if (count($urlSegments) === 4) {
+    if($urlSegments[0] === 'dosen' && $urlSegments[1] === 'pelanggaran' && $urlSegments[2] === 'detail' && is_numeric($urlSegments[3])) {
+        require_once './app/controllers/dosen/DetailPelanggaranController.php';
+        $controller = new DetailPelanggaranController($urlSegments[3]);
+        $controller->index();
+    } else {
+        require_once './app/controllers/not_found/NotFoundController.php';
+        $controller = new NotFoundController();
+        $controller->index();
     }
 } else {
     // Selain route yang telah ditetapkan, dia bakal diarahkan ke halaman 404
