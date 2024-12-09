@@ -1,5 +1,6 @@
 <?php 
 require_once './app/models/dosen/DFormModel.php';
+require_once __DIR__ . '/../Controller.php';
 
 class DFormController extends Controller {
     

@@ -1,5 +1,7 @@
 <?php 
 
+require_once __DIR__ . '/../Controller.php';
+
 class DEditProfilController extends Controller {
         
         public function index() {

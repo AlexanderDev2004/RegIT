@@ -1,6 +1,7 @@
 <?php 
 
 require_once './app/models/dosen/DPelanggaranModel.php';
+require_once __DIR__ . '/../Controller.php';
 
 class DPelanggaranController extends Controller {
 
