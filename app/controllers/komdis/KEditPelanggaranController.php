@@ -1,6 +1,6 @@
 <?php 
 
-class KEditPelanggaranController {
+class KEditPelanggaranController extends Controller {
 
     private $idPelanggaran;
 

@@ -2,7 +2,7 @@
 
 require_once './app/models/dosen/DProfilModel.php';
 
-class DProfilController {
+class DProfilController extends Controller {
 
     public function index() {
         // Memuat file view untuk halaman beranda

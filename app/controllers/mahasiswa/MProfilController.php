@@ -2,7 +2,7 @@
 
 require_once './app/models/mahasiswa/MProfilModel.php';
 
-class MProfilController {
+class MProfilController extends Controller {
     public function index() {
         session_start();
 

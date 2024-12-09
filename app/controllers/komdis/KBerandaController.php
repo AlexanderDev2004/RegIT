@@ -1,6 +1,6 @@
 <?php 
 
-class KBerandaController {
+class KBerandaController extends Controller {
 
     public function index(){
         // Memuat file view untuk halaman beranda

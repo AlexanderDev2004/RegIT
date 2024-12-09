@@ -2,7 +2,7 @@
 
 require_once './app/models/dosen/DPelanggaranModel.php';
 
-class DPelanggaranController {
+class DPelanggaranController extends Controller {
 
     public function index() {
         // Memuat file view untuk halaman beranda

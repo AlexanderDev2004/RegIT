@@ -1,7 +1,7 @@
 <?php 
 require_once './app/models/dosen/DFormModel.php';
 
-class DFormController {
+class DFormController extends Controller {
     
     public function index() {
         // Memuat file view untuk halaman beranda

@@ -1,6 +1,6 @@
 <?php 
 
-class KPelanggaranController {
+class KPelanggaranController extends Controller {
     
     public function index() {
         // Memuat file view untuk halaman beranda

@@ -1,6 +1,6 @@
 <?php 
 
-class MBerandaController {
+class MBerandaController extends Controller {
 
     public function index(){
         session_start();
