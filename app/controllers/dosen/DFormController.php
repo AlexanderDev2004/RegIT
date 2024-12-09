@@ -1,10 +1,15 @@
-<?php
+<?php 
+require_once './app/models/dosen/DFormModel.php';
 
-include './app/model/dosen/FromDosenModel.php';
+class DFormController {
+    
+    public function index() {
+        // Memuat file view untuk halaman beranda
+        require_once './app/views/dosen/formDosen.php';
+    }
 
-class FromDosenController {
     public function createLaporanPelanggaran() {
-        $model = new FromDosenModel();
+        $model = new DFormDosenModel();
 
         // Validasi dan ambil data dari form
         $nim = $_POST['nim'];
@@ -28,3 +33,5 @@ class FromDosenController {
         exit();
     }
 }
+
+?>

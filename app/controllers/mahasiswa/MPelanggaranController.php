@@ -1,11 +1,19 @@
 <?php
 
-require_once './app/models/mahasiswa/PelanggaranModel.php'; // Include model
+require_once './app/models/mahasiswa/MPelanggaranModel.php'; // Include model
 
-class PelanggaranController {
+class MPelanggaranController {
 
     public function index($id = null) {
-        $model = new PelanggaranModel(); // Inisialisasi model
+        session_start();
+
+        // Mengecek jika pengguna sudah login
+        if (!isset($_SESSION['nim'])) {
+            header("Location: " . BASE_URL . "/login");
+            exit();
+        }
+
+        $model = new MPelanggaranModel(); // Inisialisasi model
         $dataPelanggaran = $model->getDataPelanggaran($id); // Ambil data pelanggaran
         
         // Kirim data ke view

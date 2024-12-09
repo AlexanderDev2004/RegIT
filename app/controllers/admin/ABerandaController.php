@@ -1,10 +1,10 @@
 <?php 
 
-class BerandaController {
+class ABerandaController {
 
     public function index(){
         // Memuat file view untuk halaman beranda
-        require_once './app/views/dosen/detailPelanggaran.php';
+        require_once './app/views/admin/beranda.php';
     }
     
 }

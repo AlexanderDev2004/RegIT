@@ -1,11 +1,17 @@
-<?php
+<?php 
 
-require_once './app/models/dosen/ProfilDosenModel.php';
+require_once './app/models/dosen/DProfilModel.php';
 
-class ProfilDosenController {
+class DProfilController {
+
+    public function index() {
+        // Memuat file view untuk halaman beranda
+        require_once './app/views/dosen/profildosen.php';
+    }
+
     public function showProfilDosen($nip) {
         // Membuat instance dari ProfilDosenModel
-        $profilModel = new ProfilDosenModel();
+        $profilModel = new DProfilDosenModel();
         
         // Mengambil data profil dosen berdasarkan NIP
         $profilDosen = $profilModel->getProfilDosenByNIP($nip);
@@ -20,5 +26,7 @@ class ProfilDosenController {
             echo "Data dosen tidak ditemukan!";
         }
     }
+
 }
+
 ?>

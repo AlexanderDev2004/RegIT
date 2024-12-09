@@ -1,9 +1,16 @@
-<?php
-require_once './app/models/dosen/PelanggaranDosenModel.php';
+<?php 
 
-class PelanggaranDosenController {
+require_once './app/models/dosen/DPelanggaranModel.php';
+
+class DPelanggaranController {
+
+    public function index() {
+        // Memuat file view untuk halaman beranda
+        require_once './app/views/dosen/pelanggaran.php';
+    }
+
     public function createLaporanPelanggaran() {
-        $model = new PelanggaranDosenModel();
+        $model = new DPelanggaranDosenModel();
 
         // Validasi dan ambil data dari form
         $nim = $_POST['nim'];
@@ -26,5 +33,7 @@ class PelanggaranDosenController {
         header("Location: dosen.php?success=1");
         exit();
     }
+
 }
+
 ?>

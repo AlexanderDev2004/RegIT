@@ -1,13 +1,19 @@
 <?php
 
-require_once './app/models/mahasiswa/ProfilMahasiswaModel.php';
+require_once './app/models/mahasiswa/MProfilModel.php';
 
-class ProfilMahasiswaController {
+class MProfilController {
     public function index() {
         session_start();
 
+        // Mengecek jika pengguna sudah login
+        if (!isset($_SESSION['nim'])) {
+            header("Location: " . BASE_URL . "/login");
+            exit();
+        }
+
         // Ambil data profil mahasiswa dari database
-        $model = new ProfilMahasiswaModel();
+        $model = new MProfilModel();
         $data['profil'] = $model->getProfilMahasiswaByNIM($_SESSION['nim']); // Misalnya berdasarkan NIM di session
 
         // Kirim data ke view

@@ -60,7 +60,7 @@
     </div>
 
     <div class="mx-auto rounded-md shadow-md p-4 max-w-screen-xl bg-white mt-8">
-        <form action="FromDosenController.php?action=createLaporanPelanggaran" method="POST" enctype="multipart/form-data">
+        <form action="<?= BASE_URL . '/dosen/form/submit'?>" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
                 <label for="nim" class="block text-sm font-medium text-gray-700">NIM</label>
                 <input type="number" id="nim" name="nim" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Masukkan NIM">
