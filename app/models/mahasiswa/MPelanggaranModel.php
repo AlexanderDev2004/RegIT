@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../Model.php'; 
 
-class PelanggaranModel extends Model {
+class MPelanggaranModel extends Model {
 
     public function getDataPelanggaran($id) : array {
         $dataPelanggaran = [];

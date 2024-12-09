@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../Model.php';
 
-class ProfilMahasiswaModel extends Model {
+class MProfilModel extends Model {
     public function getProfilMahasiswaByNIM($nim) {
         // Query SQL
         $query = "SELECT nim, nama_prodi, nama_mahasiswa, nama_kelas, angkatan, status_mahasiswa

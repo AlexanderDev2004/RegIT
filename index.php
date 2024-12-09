@@ -14,6 +14,10 @@ if (isset($_GET['url'])) {
     $urlSegments = []; // Jika URL kosong
 }
 
+// jika url salah atau tidak ada maka akan muncul halaman 404
+// if (empty($urlSegments)) {
+//     header('Location: ./404');
+// }
 
 // Routing sederhana
 // if (empty($urlSegments)) {
@@ -65,32 +69,123 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
 } else if (count($urlSegments) === 2) {
     // Kondisi jika routenya memiliki 2 segmen (ex: mahasiswa/dashboard)
     if($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'dashboard') {
-        require_once './app/controllers/mahasiswa/BerandaController.php';
-        $controller = new BerandaController();
+        require_once './app/controllers/mahasiswa/MBerandaController.php';
+        $controller = new MBerandaController();
         $controller->index();
     } else if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'pelanggaran') {
-        require_once './app/controllers/mahasiswa/PelanggaranController.php';
-        $controller = new PelanggaranController();
+        require_once './app/controllers/mahasiswa/MPelanggaranController.php';
+        $controller = new MPelanggaranController();
         $controller->index();
     } else if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil') {
-        require_once './app/controllers/mahasiswa/ProfilMahasiswaController.php';
-        $controller = new ProfilMahasiswaController(); 
+        require_once './app/controllers/mahasiswa/MProfilController.php';
+        $controller = new MProfilController(); 
         $controller->index();
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'dashboard') {
-        require_once './app/controllers/dpa/BerandaController.php';
-        $controller = new BerandaController();
+        require_once './app/controllers/dpa/DPBerandaController.php';
+        $controller = new DPBerandaController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/dpa/DPPelanggaranController.php';
+        $controller = new DPPelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'form') {
+        require_once './app/controllers/dpa/DPFormController.php';
+        $controller = new DPFormController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/dpa/DPProfilController.php';
+        $controller = new DPProfilController();
         $controller->index();
     } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'dashboard') {
-        require_once './app/controllers/dosen/BerandaController.php';
-        $controller = new BerandaController();
+        require_once './app/controllers/dosen/DBerandaController.php';
+        $controller = new DBerandaController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'form') {
+        require_once './app/controllers/dosen/DFormController.php';
+        $controller = new DFormController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/dosen/DPelanggaranController.php';
+        $controller = new DPelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/dosen/DProfilController.php';
+        $controller = new DProfilController();
         $controller->index();
     } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'dashboard') {
-        require_once './app/controllers/komdis/BerandaController.php';
-        $controller = new BerandaController();
+        require_once './app/controllers/komdis/KBerandaController.php';
+        $controller = new KBerandaController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/komdis/KPelanggaranController.php';
+        $controller = new KPelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/komdis/KProfilController.php';
+        $controller = new KProfilController();
         $controller->index();
     } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'dashboard') {
-        require_once './app/controllers/admin/BerandaController.php';
-        $controller = new BerandaController();
+        require_once './app/controllers/admin/ABerandaController.php';
+        $controller = new ABerandaController();
+        $controller->index();
+    } else {
+        require_once './app/controllers/not_found/NotFoundController.php';
+        $controller = new NotFoundController();
+        $controller->index();
+    }
+} else if (count($urlSegments) === 3) {
+    // Kondisi jika routenya memiliki 3 segmen (ex: mahasiswa/profil/edit)
+    if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/mahasiswa/MEditProfilController.php';
+        $controller = new MEditProfilController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2])) {
+        require_once './app/controllers/dpa/DPDetailPelanggaranController.php';
+        $controller = new DPDetailPelanggaranController($urlSegments[2]);
+        $controller->index();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/dpa/DPEditProfilController.php';
+        $controller = new DPEditProfilController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2])) {
+        require_once './app/controllers/dosen/DDetailPelanggaranController.php';
+        $controller = new DDetailPelanggaranController($urlSegments[2]);
+        $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'form' && $urlSegments[2] === 'submit') {
+        require_once './app/controllers/dosen/DFormController.php';
+        $controller = new DFormController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->createLaporanPelanggaran();
+        } else {
+            // Jika bukan POST, redirect ke halaman form
+            header("Location: " . BASE_URL . "/dosen/form");
+            exit();
+        }
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/dosen/DEditProfilController.php';
+        $controller = new DEditProfilController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2])) {
+        require_once './app/controllers/komdis/KDetailPelanggaranController.php';
+        $controller = new KDetailPelanggaranController($urlSegments[2]);
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/komdis/KEditProfilController.php';
+        $controller = new KEditProfilController();
+        $controller->index();
+    } else {
+        require_once './app/controllers/not_found/NotFoundController.php';
+        $controller = new NotFoundController();
+        $controller->index();
+    }
+} else if (count($urlSegments) === 4) {
+    if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2]) && $urlSegments[3] === 'edit') {
+        require_once './app/controllers/dpa/DPEditPelanggaranController.php';
+        $controller = new DPEditPelanggaranController($urlSegments[2]);
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2]) && $urlSegments[3] === 'edit') {
+        require_once './app/controllers/komdis/KEditPelanggaranController.php';
+        $controller = new KEditPelanggaranController($urlSegments[2]);
         $controller->index();
     } else {
         require_once './app/controllers/not_found/NotFoundController.php';
