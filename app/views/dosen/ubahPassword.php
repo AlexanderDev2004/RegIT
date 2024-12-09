@@ -102,11 +102,11 @@
             
             <!-- Tombol Aksi -->
             <div class="flex justify-between w-72">
-                <button type="submit" onclick="window.location.href='../loginPage.php'" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+                <button type="submit" onclick="window.location.href='../login'" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
                     <i class="fa-solid fa-circle-check"></i>
                     <span class="font-semibold ml-2">Simpan</span>
                 </button>
-                <button type="button" onclick="window.location.href='Profile.php'" class="bg-[#132145] text-white px-4 py-2 rounded-md hover:bg-blue-800 transition">
+                <button type="button" onclick="window.location.href='../profil'" class="bg-[#132145] text-white px-4 py-2 rounded-md hover:bg-blue-800 transition">
                     <i class="fa-solid fa-arrow-turn-up -rotate-90"></i>
                     <Span class="font-semibold ml-2">Kembali</Span>
                 </button>
@@ -115,7 +115,7 @@
     </div>
     <!-- Edit Password End -->
      <!-- Footer -->
-    <?php include "../components/footer.php"?>
+    <?php include "./app/views/components/footer.php"?>
     <!-- End Footer -->
 </body>
 </html>
