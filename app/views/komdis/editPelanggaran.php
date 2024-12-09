@@ -70,7 +70,7 @@
 
     <!-- Main Content -->
     <div id="Pelanggaran"class="flex justify-center items-center pt-8">
-       <p class="font-bold text-3xl flex text-center items-center text-[#132145] ml-8 flex flex-col justify-center">Analisa Pelanggaran</p>
+       <p class="font-bold text-3xl flex text-center items-center text-[#132145] ml-8 flex flex-col justify-center">Edit Pelanggaran</p>
     </div>
     
     <!-- Content -->
