@@ -124,10 +124,6 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/komdis/KProfilController.php';
         $controller = new KProfilController();
         $controller->index();
-    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'dashboard') {
-        require_once './app/controllers/admin/ABerandaController.php';
-        $controller = new ABerandaController();
-        $controller->index();
     } else {
         require_once './app/controllers/not_found/NotFoundController.php';
         $controller = new NotFoundController();
