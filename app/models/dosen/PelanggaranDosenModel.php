@@ -8,7 +8,7 @@ class PelanggaranDosenModel extends Model {
         $sql = "INSERT INTO pelanggaran (nim, id_status_pelanggaran, id_pegawai, id_tata_tertib, tgl_pelanggaran, image_name, image_data) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->bind_param("siissbs", $nim, $idStatusPelanggaran, $idPegawai, $idTataTertib, $tglPelanggaran, $fileName, $imageData);
         if ($stmt->execute()) {
             return true;

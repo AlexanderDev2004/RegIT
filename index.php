@@ -119,6 +119,17 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/mahasiswa/EditProfilController.php';
         $controller = new EditProfilController();
         $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'form' && $urlSegments[2] === 'submit') {
+        require_once './app/controllers/dosen/FormController.php';
+        $controller = new FormController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->createLaporanPelanggaran();
+        } else {
+            // Jika bukan POST, redirect ke halaman form
+            header("Location: " . BASE_URL . "/dosen/form");
+            exit();
+        }
+
     } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
         require_once './app/controllers/dosen/EditProfilController.php';
         $controller = new EditProfilController();

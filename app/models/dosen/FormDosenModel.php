@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../Model.php';
 
-class FromDosenModel extends Model {
+class FormDosenModel extends Model {
     public function createLaporanPelanggaranDosen($nim, $idStatusPelanggaran, $idPegawai, $idTataTertib, $tglPelanggaran, $fileName, $imageData) {
         // Prosedur SQL Server dengan parameter input
         $sql = "{CALL CreateLaporanPelanggaranDosen(?, ?, ?, ?, ?, ?, ?)}";
