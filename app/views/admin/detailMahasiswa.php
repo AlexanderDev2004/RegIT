@@ -112,6 +112,7 @@
             <div class="font-bold text-[#132145] ml-8">Bukti</div>
             <img src="../../public/contohKTM.png" alt="">
         </div>
+        
      </div>
 
     <!-- Footer -->
