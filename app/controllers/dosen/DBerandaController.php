@@ -1,6 +1,6 @@
 <?php 
 
-class BerandaController {
+class DBerandaController {
 
     public function index(){
         // Memuat file view untuk halaman beranda

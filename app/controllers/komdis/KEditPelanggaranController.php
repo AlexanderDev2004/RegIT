@@ -1,15 +1,16 @@
 <?php 
 
-class DetailPelanggaranController {
+class KEditPelanggaranController {
+
     private $idPelanggaran;
-    
+
     public function __construct($idPelanggaran) {
         $this->idPelanggaran = $idPelanggaran;
     }
 
-    public function index() {
+    public function index(){
         // Memuat file view untuk halaman beranda
-        require_once './app/views/dosen/detailPelanggaran.php';
+        require_once './app/views/komdis/editPelanggaran.php';
     }
 
 }

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../Model.php';
 
-class PelanggaranDosenModel extends Model {
+class DPelanggaranDosenModel extends Model {
     public function createLaporanPelanggaranDosen($nim, $idStatusPelanggaran, $idPegawai, $idTataTertib, $tglPelanggaran, $fileName, $imageData) {
         // Query SQL untuk menyimpan data pelanggaran
         $sql = "INSERT INTO pelanggaran (nim, id_status_pelanggaran, id_pegawai, id_tata_tertib, tgl_pelanggaran, image_name, image_data) 

@@ -1,6 +1,6 @@
 <?php 
 
-class EditProfilController {
+class DEditProfilController {
         
         public function index() {
             // Memuat file view untuk halaman beranda

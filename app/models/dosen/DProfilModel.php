@@ -1,6 +1,6 @@
 <?php
 
-class ProfilDosenModel {
+class DProfilDosenModel {
     private $db;
 
     public function __construct() {

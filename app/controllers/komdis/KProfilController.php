@@ -1,10 +1,10 @@
 <?php 
 
-class PelanggaranController {
-    
+class KProfilController {
+
     public function index() {
         // Memuat file view untuk halaman beranda
-        require_once './app/views/komdis/pelanggaran.php';
+        require_once './app/views/komdis/profilKomdis.php';
     }
 
 }

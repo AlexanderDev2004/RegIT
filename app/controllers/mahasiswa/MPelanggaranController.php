@@ -1,8 +1,8 @@
 <?php
 
-require_once './app/models/mahasiswa/PelanggaranModel.php'; // Include model
+require_once './app/models/mahasiswa/MPelanggaranModel.php'; // Include model
 
-class PelanggaranController {
+class MPelanggaranController {
 
     public function index($id = null) {
         session_start();
@@ -13,7 +13,7 @@ class PelanggaranController {
             exit();
         }
 
-        $model = new PelanggaranModel(); // Inisialisasi model
+        $model = new MPelanggaranModel(); // Inisialisasi model
         $dataPelanggaran = $model->getDataPelanggaran($id); // Ambil data pelanggaran
         
         // Kirim data ke view

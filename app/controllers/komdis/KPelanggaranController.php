@@ -1,10 +1,10 @@
 <?php 
 
-class EditProfilController {
+class KPelanggaranController {
     
     public function index() {
         // Memuat file view untuk halaman beranda
-        require_once './app/views/komdis/editPassword.php';
+        require_once './app/views/komdis/pelanggaran.php';
     }
 
 }

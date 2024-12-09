@@ -1,10 +1,10 @@
 <?php 
 
-class BerandaController {
+class ABerandaController {
 
     public function index(){
         // Memuat file view untuk halaman beranda
-        require_once './app/views/komdis/berandaKomdis.php';
+        require_once './app/views/admin/beranda.php';
     }
     
 }

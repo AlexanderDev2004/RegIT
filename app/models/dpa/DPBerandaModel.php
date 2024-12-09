@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../Model.php';
 
-class BerandaModel extends Model {
+class DPBerandaModel extends Model {
     
     use BerandaTrait;
 

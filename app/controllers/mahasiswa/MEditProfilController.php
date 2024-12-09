@@ -1,8 +1,7 @@
 <?php 
 
-class BerandaController {
-
-    public function index(){
+class MEditProfilController {
+    public function index() {
         session_start();
 
         // Mengecek jika pengguna sudah login
@@ -11,10 +10,9 @@ class BerandaController {
             exit();
         }
 
-        // Memuat file view untuk halaman beranda
-        require_once './app/views/mahasiswa/Beranda.php';
+        // Memuat file view untuk halaman edit profil
+        require_once './app/views/mahasiswa/UbahPassword.php';
     }
-
 }
 
 ?>

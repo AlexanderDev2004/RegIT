@@ -1,8 +1,8 @@
 <?php 
 
-require_once './app/models/dosen/PelanggaranDosenModel.php';
+require_once './app/models/dosen/DPelanggaranModel.php';
 
-class PelanggaranController {
+class DPelanggaranController {
 
     public function index() {
         // Memuat file view untuk halaman beranda
@@ -10,7 +10,7 @@ class PelanggaranController {
     }
 
     public function createLaporanPelanggaran() {
-        $model = new PelanggaranDosenModel();
+        $model = new DPelanggaranDosenModel();
 
         // Validasi dan ambil data dari form
         $nim = $_POST['nim'];
