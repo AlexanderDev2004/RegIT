@@ -29,11 +29,11 @@
 </head>
 <body class="bg-[#EBEEF5] scale font-poppins">
     <!-- Header -->
-    <?php include "components/Header.php"?>
+    <?php include "./app/views/mahasiswa/components/Header.php"?>
     <!-- Header -->
 
     <!-- SideBar -->
-    <?php include "components/Sidebar.php"?>
+    <?php include "./app/views/mahasiswa/components/Sidebar.php"?>
     <!-- Sidebar End -->
 
     <!-- Content -->
@@ -42,11 +42,11 @@
     </div>
 
     <!-- Chart -->
-    <?php include "../components/Chart.php"?>
+    <?php include "./app/views/components/Chart.php"?>
     <!-- Chart End -->
 
     <!-- Footer -->
-    <?php include "../components/Footer.php"?>
+    <?php include "./app/views/components/footer.php"?>
     <!-- Footer End -->
 </body>
 </html> 
