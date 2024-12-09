@@ -3,7 +3,8 @@
 require_once __DIR__ . '/../Model.php';
 
 class MProfilModel extends Model {
-    public function getProfilMahasiswaByNIM($nim) {
+
+    public function getProfilMahasiswaByNIM($nim): array {
         // Query SQL
         $query = "SELECT nim, nama_prodi, nama_mahasiswa, nama_kelas, angkatan, status_mahasiswa
                 FROM mahasiswa AS m
@@ -30,4 +31,5 @@ class MProfilModel extends Model {
 
         return $result;
     }
+
 }

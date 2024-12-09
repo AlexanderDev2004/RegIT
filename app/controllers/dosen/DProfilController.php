@@ -1,6 +1,7 @@
 <?php 
 
 require_once './app/models/dosen/DProfilModel.php';
+require_once __DIR__ . '/../Controller.php';
 
 class DProfilController extends Controller {
 

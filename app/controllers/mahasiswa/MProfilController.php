@@ -1,6 +1,7 @@
 <?php
 
 require_once './app/models/mahasiswa/MProfilModel.php';
+require_once __DIR__ . '/../Controller.php';
 
 class MProfilController extends Controller {
     public function index() {

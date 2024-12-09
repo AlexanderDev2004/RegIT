@@ -1,6 +1,7 @@
 <?php
 
 require_once './app/models/mahasiswa/MPelanggaranModel.php'; // Include model
+require_once __DIR__ . '/../Controller.php';
 
 class MPelanggaranController extends Controller {
 
