@@ -104,6 +104,14 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/komdis/BerandaController.php';
         $controller = new BerandaController();
         $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'pelanggaran') {
+        require_once './app/controllers/komdis/PelanggaranController.php';
+        $controller = new PelanggaranController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/komdis/ProfilController.php';
+        $controller = new ProfilController();
+        $controller->index();
     } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'dashboard') {
         require_once './app/controllers/admin/BerandaController.php';
         $controller = new BerandaController();
@@ -129,8 +137,11 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
             header("Location: " . BASE_URL . "/dosen/form");
             exit();
         }
-
     } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/dosen/EditProfilController.php';
+        $controller = new EditProfilController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
         require_once './app/controllers/dosen/EditProfilController.php';
         $controller = new EditProfilController();
         $controller->index();
