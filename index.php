@@ -97,6 +97,18 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         $controller = new NotFoundController();
         $controller->index();
     }
+} else if (count($urlSegments) === 3) {
+    // Kondisi jika routenya memiliki 3 segmen (ex: mahasiswa/profil/edit)
+    if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit') {
+        require_once './app/controllers/mahasiswa/EditProfilController.php';
+        $controller = new EditProfilController();
+        $controller->index();
+    } else {
+        require_once './app/controllers/not_found/NotFoundController.php';
+        $controller = new NotFoundController();
+        $controller->index();
+
+    }
 } else {
     // Selain route yang telah ditetapkan, dia bakal diarahkan ke halaman 404
     require_once './app/controllers/not_found/NotFoundController.php';
