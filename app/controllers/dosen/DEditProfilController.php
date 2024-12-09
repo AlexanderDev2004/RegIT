@@ -1,6 +1,6 @@
 <?php 
 
-class DEditProfilController {
+class DEditProfilController extends Controller {
         
         public function index() {
             // Memuat file view untuk halaman beranda

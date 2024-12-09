@@ -1,6 +1,6 @@
 <?php 
 
-class KEditProfilController {
+class KEditProfilController extends Controller {
     
     public function index() {
         // Memuat file view untuk halaman beranda

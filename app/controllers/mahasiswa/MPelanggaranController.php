@@ -2,7 +2,7 @@
 
 require_once './app/models/mahasiswa/MPelanggaranModel.php'; // Include model
 
-class MPelanggaranController {
+class MPelanggaranController extends Controller {
 
     public function index($id = null) {
         session_start();

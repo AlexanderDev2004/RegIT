@@ -1,6 +1,6 @@
 <?php 
 
-class DDetailPelanggaranController {
+class DDetailPelanggaranController extends Controller {
     private $idPelanggaran;
     
     public function __construct($idPelanggaran) {

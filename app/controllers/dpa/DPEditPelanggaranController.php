@@ -1,6 +1,6 @@
 <?php 
 
-class DPEditPelanggaranController {
+class DPEditPelanggaranController extends Controller {
     
     public function index(){
         // Memuat file view untuk halaman beranda

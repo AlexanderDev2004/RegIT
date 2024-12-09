@@ -1,6 +1,6 @@
 <?php 
 
-class MEditProfilController {
+class MEditProfilController extends Controller {
     public function index() {
         session_start();
 

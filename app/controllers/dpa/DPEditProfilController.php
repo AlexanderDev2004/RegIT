@@ -1,6 +1,6 @@
 <?php 
 
-class DPEditProfilController {
+class DPEditProfilController extends Controller {
 
     public function index(){
         // Memuat file view untuk halaman beranda
