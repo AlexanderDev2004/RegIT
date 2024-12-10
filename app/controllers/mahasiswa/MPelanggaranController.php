@@ -15,12 +15,12 @@ class MPelanggaranController extends Controller {
         }
 
         $model = new MPelanggaranModel(); // Inisialisasi model
-        $dataPelanggaran = $model->getDataPelanggaran($id); // Ambil data pelanggaran
+        // $dataPelanggaran = $model->getDataPelanggaran($id); // Ambil data pelanggaran
         
         // Kirim data ke view
-        $data = [
-            'pelanggaran' => $dataPelanggaran
-        ];
+        // $data = [
+        //     'pelanggaran' => $dataPelanggaran
+        // ];
 
         // Memuat file view untuk halaman Pelanggaran
         require_once './app/views/mahasiswa/Pelanggaran.php';
