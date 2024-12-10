@@ -106,14 +106,14 @@
                         <td class="border border-blue-200 px-4 py-2 text-center">Selesai</td>
                         <td class="border border-blue-200 px-4 py-2 text-center">
                             <div class="flex justify-center space-x-2"> 
-                                <button type="button" onclick="window.location.href='detailpelanggaran'" 
+                                <button type="button" onclick="window.location.href='./pelanggaran/1'" 
                                     class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                     <img src=".././public/Details.svg" alt="" class="">
                                     <span class="ml-2">Detail</span>    
                                 </button>
                                 <button type="button" 
                                     class="flex flex-row w-28 px-4 py-2 bg-[#FF3B30] text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
-                                    <img src="../../Public/Trash.svg" alt="">
+                                    <img src=".././public/Trash.svg" alt="">
                                     <span class="ml-2">Hapus</span>
                                 </button>
                             </div>
