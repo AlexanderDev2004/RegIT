@@ -204,7 +204,7 @@
                             <div class="flex flex-row justify-center space-x-2"> 
                                 <button type="button" onclick="window.location.href='detailPelanggaran.php'" 
                                     class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                    <img src="../../Public/Details.svg" alt="" class="">
+                                    <img src=".././" alt="" class="">
                                     <span class="ml-2">Detail</span>    
                                 </button>
                                 <button type="button" 
