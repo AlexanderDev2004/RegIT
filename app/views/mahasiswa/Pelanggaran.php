@@ -81,7 +81,7 @@
     <!-- Table End -->
 
     <!-- Footer -->
-    <?php include "../components/Footer.php" ?>
+    <?php include "./app/views/components/footer.php" ?>
     <!-- Footer End -->
 </body>
 </html>
