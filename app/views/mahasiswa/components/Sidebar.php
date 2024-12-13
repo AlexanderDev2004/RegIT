@@ -1,13 +1,13 @@
 <!-- SideBar -->
-<div class="flex w-full mx-auto">
-        <div class="w-64 h-screen bg-[#132145] text-white flex flex-col items-center py-6 absolute top-0">
+<div class="flex w-full mx-auto ">
+        <div class="w-64 h-screen bg-[#132145] text-white flex flex-col items-center py-6 absolute top-0 ">
             <div class="mb-6">
                 <div class="w-20 h-20 flex items-center justify-center rounded-lg mt-6">
                     <img src=".././public/LogoSide.png" alt="logo" class="w-20 h-20 object-contain">
                 </div>
             </div>
             <!-- Navbar menu -->
-            <nav class="w-52 flex flex-col">
+            <nav class="w-52 flex flex-col h-screen">
                 <a href="dashboard" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600">
                     <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg" class=" ">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.274461 6.12617C0 6.72291 0 7.40179 0 8.75955V12.9999C0 14.8856 0 15.8284 0.585786 16.4142C1.11733 16.9457 1.94285 16.9949 3.5 16.9995V12C3.5 10.8954 4.39543 10 5.5 10H8.5C9.60457 10 10.5 10.8954 10.5 12V16.9995C12.0572 16.9949 12.8827 16.9457 13.4142 16.4142C14 15.8284 14 14.8856 14 12.9999V8.75955C14 7.40179 14 6.72291 13.7255 6.12617C13.4511 5.52943 12.9356 5.08763 11.9047 4.20401L10.9047 3.34687C9.04143 1.74974 8.10977 0.951172 7 0.951172C5.89023 0.951172 4.95857 1.74974 3.09525 3.34687L2.09525 4.20401C1.06437 5.08763 0.548923 5.52943 0.274461 6.12617ZM8.5 16.9999V12H5.5V16.9999H8.5Z" fill="white"
