@@ -14,16 +14,18 @@ class MPelanggaranController extends Controller {
             exit();
         }
 
+        $nim = $_SESSION['nim']; // Ambil NIM dari session
         $model = new MPelanggaranModel(); // Inisialisasi model
-        // $dataPelanggaran = $model->getDataPelanggaran($id); // Ambil data pelanggaran
-        
+
+        // Ambil data pelanggaran mahasiswa berdasarkan NIM
+        $dataPelanggaran = $model->getDataPelanggaran($nim);
+
         // Kirim data ke view
-        // $data = [
-        //     'pelanggaran' => $dataPelanggaran
-        // ];
+        $data = [
+            'pelanggaran' => $dataPelanggaran
+        ];
 
         // Memuat file view untuk halaman Pelanggaran
         require_once './app/views/mahasiswa/Pelanggaran.php';
     }
 }
-?>

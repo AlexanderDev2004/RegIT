@@ -7,7 +7,7 @@
 define('BASE_URL', 'http://localhost/RegIT');
 
 // Konfigurasi Database
-define('DB_SERVER', 'PETER\SQLSERVER');
+define('DB_SERVER', 'LAPTOP-MHVH0S2R');
 define('DB_NAME', 'reg_it_v2118');
 
 

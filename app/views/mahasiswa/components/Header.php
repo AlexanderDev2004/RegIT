@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<header class="w-full text-white flex items-center justify-between bg-[#132145]">
+<header class="w-full text-white flex items-center justify-between bg-[#132145] h-screen">
     <section class="container w-fit flex pl-72 py-6 font-bold text-4xl cursor-default">
         <a href="dashboard">
         <h4 class="text-[#FEC01A]">Reg<span class="text-white">IT</span></h4>
