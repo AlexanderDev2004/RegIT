@@ -1,6 +1,6 @@
 <!-- SideBar -->
-<div class="flex w-full mx-auto h-screen">
-        <div class="w-64 h-screen bg-[#132145] text-white flex flex-col items-center py-6 absolute top-0 h-screen">
+<div class="flex w-full mx-auto ">
+        <div class="w-64 h-screen bg-[#132145] text-white flex flex-col items-center py-6 absolute top-0 ">
             <div class="mb-6">
                 <div class="w-20 h-20 flex items-center justify-center rounded-lg mt-6">
                     <img src=".././public/LogoSide.png" alt="logo" class="w-20 h-20 object-contain">
