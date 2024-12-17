@@ -9,7 +9,7 @@ class DPPelanggaranModel {
         $this->model = new DPPelanggaranModel();
     }
     
-    ini_set('memory_limit', '44M');
+    // ini_set('memory_limit', '44M');
 
     // Metode untuk membuat laporan pelanggaran mahasiswa
     public function createLaporanPelanggaran($params) {
