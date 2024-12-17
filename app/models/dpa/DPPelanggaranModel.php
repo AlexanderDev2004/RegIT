@@ -1,13 +1,15 @@
 <?php
 
-require_once __DIR__ . '/../../core/db_config.php';
-
+include __DIR__ . '/../../core/db_config.php';
+include __DIR__ . '/../Model.php';
 class DPPelanggaranModel {
     private $model;
 
     public function __construct() {
         $this->model = new DPPelanggaranModel();
     }
+    
+    ini_set('memory_limit', '44M');
 
     // Metode untuk membuat laporan pelanggaran mahasiswa
     public function createLaporanPelanggaran($params) {
