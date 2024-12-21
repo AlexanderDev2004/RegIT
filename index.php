@@ -124,6 +124,34 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/komdis/KProfilController.php';
         $controller = new KProfilController();
         $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-mahasiswa') {
+        require_once './app/controllers/admin/ADataMController.php';
+        $controller = new ADataMController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-dosen') {
+        require_once './app/controllers/admin/ADataDController.php';
+        $controller = new ADataDController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-dpa') {
+        require_once './app/controllers/admin/ADataDPController.php';
+        $controller = new ADataDPController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-komdis') {
+        require_once './app/controllers/admin/ADataKController.php';
+        $controller = new ADataKController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-tatib') {
+        require_once './app/controllers/admin/ADataTController.php';
+        $controller = new ADataTController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-admin') {
+        require_once './app/controllers/admin/ADataAController.php';
+        $controller = new ADataAController();
+        $controller->index();
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'profil') {
+        require_once './app/controllers/admin/AProfilController.php';
+        $controller = new AProfilController();
+        $controller->index();
     } else {
         require_once './app/controllers/not_found/NotFoundController.php';
         $controller = new NotFoundController();
@@ -169,7 +197,11 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/komdis/KEditProfilController.php';
         $controller = new KEditProfilController();
         $controller->index();
-    } else {
+    } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-mahasiswa' && is_numeric($urlSegments[2])) {
+        require_once './app/controllers/admin/ADetailMController.php';
+        $controller = new ADetailMController($urlSegments[2]);
+        $controller->index();
+    }else {
         require_once './app/controllers/not_found/NotFoundController.php';
         $controller = new NotFoundController();
         $controller->index();
