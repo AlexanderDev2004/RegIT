@@ -39,6 +39,7 @@ class LoginController
                             header("Location: " . BASE_URL . "/dosen/dashboard");
                             break;
                         case 'DPA':
+                            $_SESSION["ROLEEEEEE"] = "DPA"; 
                             header("Location: " . BASE_URL . "/dpa/dashboard");
                             break;
                         case 'Komisi Disiplin':
