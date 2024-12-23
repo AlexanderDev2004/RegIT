@@ -5,6 +5,7 @@ require_once __DIR__ . '/../Model.php';
 class DPPelanggaranModel {
     private $model;
 
+    // Konstruktor terlooping dan maka akan muncul error : Allowed memory size of 1073741824 bytes exhausted (tried to allocate 4096 bytes) in C:\laragon\www\RegIT\app\models\dpa\DPPelanggaranModel.php on line 9
     public function __construct() {
         $this->model = new DPPelanggaranModel();
     }
