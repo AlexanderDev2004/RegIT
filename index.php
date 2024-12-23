@@ -84,10 +84,18 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/dpa/DPBerandaController.php';
         $controller = new DPBerandaController();
         $controller->index();
+
+
+
+        
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran') {
         require_once './app/controllers/dpa/DPPelanggaranController.php';
         $controller = new DPPelanggaranController();
         $controller->index();
+
+
+
+        
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'form') {
         require_once './app/controllers/dpa/DPFormController.php';
         $controller = new DPFormController();

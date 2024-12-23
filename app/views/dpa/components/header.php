@@ -9,7 +9,7 @@
             <div class="">
                 <a href="profil">
                     <h5>Dosen DPA23</h5>
-                    <h5>19801901 1 005</h5>
+                    <h5><?= $idPegawai ?></h5>
                 </a>
             </div>
         </section>

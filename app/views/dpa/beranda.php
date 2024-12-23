@@ -29,7 +29,10 @@
 </head>
 <body class="bg-[#EBEEF5] scale font-poppins">
     <!-- Navbar -->
-    <?php include "components/header.php"?>
+    <?php 
+    $idPegawai = $_SESSION['id_pegawai'];
+    include "components/header.php"
+    ?>     
     <!-- Navbar End -->
 
     <!-- SideBar -->

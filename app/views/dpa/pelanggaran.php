@@ -1,3 +1,7 @@
+<?php 
+require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +32,10 @@
 <body class="bg-[#EBEEF5] scale font-poppins">
 
     <!-- Navbar -->
-    <?php include "components/header.php"?>     
+    <?php 
+    $idPegawai = $_SESSION['id_pegawai'];
+    include "components/header.php"
+    ?>     
     <!-- Navbar End -->
 
     <!-- SideBar -->
@@ -93,7 +100,7 @@
                 </thead>
                 <tbody>
                     <!-- Sample Data Row -->
-                    <tr class="bg-white">
+                    <!-- <tr class="bg-white">
                         <td class="border border-blue-200 px-4 py-2 text-center">1</td>
                         <td class="border border-blue-200 px-4 py-2">FIERA ZIADATTUN NISA'</td>
                         <td class="border border-blue-200 px-4 py-2">12-11-2024</td>
@@ -116,7 +123,33 @@
                                 </button>
                             </div>
                         </td>
+                    </tr> -->
+                    <?php $i = 1; foreach($dataPelanggaran as $data): ?>
+                    <tr class="bg-white">
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $i++ ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["nama_mahasiswa"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= date_format($data["tgl_pelanggaran"], "Y-m-d") ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["deskripsi"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["level_tatib"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["jenis_sanksi"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= date_format($data["tgl_sanksi"], "Y-m-d") ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["status_pelanggaran"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center">
+                            <div class="flex justify-center space-x-2"> 
+                                <button type="button" onclick="window.location.href='./pelanggaran/1'" 
+                                    class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                    <img src=".././public/Details.svg" alt="" class="">
+                                    <span class="ml-2">Detail</span>    
+                                </button>
+                                <button type="button" 
+                                    class="flex flex-row w-28 px-4 py-2 bg-[#FF3B30] text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                    <img src=".././public/Trash.svg" alt="">
+                                    <span class="ml-2">Hapus</span>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
