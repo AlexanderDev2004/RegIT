@@ -4,6 +4,15 @@ require_once __DIR__ . '/../Model.php';
 require_once __DIR__ . '/../.././core/db_config.php';
 class KPelanggaranModel extends Model {
 
+    public function __construct() {
+        // Asumsikan $this->db adalah koneksi database
+        $this->db = new mysqli('localhost', 'username', 'password', 'database');
+        
+        if ($this->db->connect_error) {
+            die("Connection failed: " . $this->db->connect_error);
+        }
+    }
+
     public function getPelanggaranTingkat1() {
         $query = "
             SELECT m.nama_mahasiswa, p.tgl_pelanggaran, t.deskripsi, sa.jenis_sanksi, sa.tgl_sanksi, sp.status_pelanggaran, sm.status_mahasiswa
