@@ -90,16 +90,22 @@
         
         <!-- Edit Password End -->
 
-        <div class="overflow-x-auto gap-x-0 gap-y-8">
+        <!-- tampilkan profil dpa -->
+        <?php if (isset($data)): ?>
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">NIP</span>
-                <p class="ml-8 text-gray-600">19801901 1 005</p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nip']); ?></p>
             </div>
+
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">Nama</span>
-                <p class="ml-8 text-gray-600">Dosen DPA23</p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama']); ?></p>
             </div>
-        </div>
+        <?php else: ?>
+            <p class="ml-8 text-red-600">Data dpa tidak ditemukan!</p>
+        <?php endif; ?>
+        
+       
         <!-- Logout Button -->
          <div class="flex mt-10">
             <a href="../login" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
