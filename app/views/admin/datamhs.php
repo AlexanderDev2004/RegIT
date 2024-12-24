@@ -253,7 +253,7 @@
     </div>
 
     <!-- Footer -->
-    <?php include "../components/Footer.php"?>
+    <?php include "../admin/components/footer.php"?>
     <!-- Footer End -->
 </body>
 </html>
