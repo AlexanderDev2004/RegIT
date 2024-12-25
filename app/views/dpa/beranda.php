@@ -30,7 +30,6 @@
 <body class="bg-[#EBEEF5] scale font-poppins">
     <!-- Navbar -->
     <?php 
-    $idPegawai = $_SESSION['id_pegawai'];
     include "components/header.php"
     ?>     
     <!-- Navbar End -->

@@ -7,15 +7,20 @@
 
     <!-- Code Grafik -->
     <script>
+        const pelanggaranData = <?= $encodedJsonChartData ?>;
+
+        const labelsMonths = Object.keys(pelanggaranData);
+        const dataPelanggaran = Object.values(pelanggaranData);
+        
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                labels: labelsMonths,
                 datasets: [{
                     label: 'Jumlah Pelanggaran',
-                    data: [12, 19, 3, 5, 2, 3, 7, 8, 9, 10, 11, 12],
+                    data: dataPelanggaran,
                     borderWidth: 1,
                       
                 }]

@@ -7,7 +7,7 @@ class MProfilController extends Controller {
     public function index() {
         session_start();
 
-        // Mengecek jika pengguna sudah login
+        // Mengecek jika pengguna belum login
         if (!isset($_SESSION['nim'])) {
             header("Location: " . BASE_URL . "/login");
             exit();
@@ -19,5 +19,12 @@ class MProfilController extends Controller {
 
         // Kirim data ke view
         require_once './app/views/mahasiswa/Profile.php';
+    }
+
+    public function logout(){
+        session_start();
+        session_destroy();
+        header("Location: " . BASE_URL . "/login");
+        exit();
     }
 }

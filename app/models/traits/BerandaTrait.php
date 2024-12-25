@@ -17,14 +17,14 @@ trait BerandaTrait
 
         $stmt = sqlsrv_query($db, $sql);
 
-        if ($stmt) {
+        if ($stmt && sqlsrv_has_rows($stmt)) {
             while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
                 $dataPelanggaran[$row['bulan']] = $row['jumlah_pelanggaran'];
             }
         }
 
         // Generate array month name with date time now -> month date time now -1 
-        $this->generateMonthNow(function($months) {
+        $this->generateMonthNow(function($months) use (&$returnData, $dataPelanggaran) {
             foreach ($months as $month) {
                 $returnData[$month] = $dataPelanggaran[$month] ?? 0;
             }
