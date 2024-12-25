@@ -211,7 +211,11 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         $controller->index();
     }
 } else if (count($urlSegments) === 4) {
-    if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2]) && $urlSegments[3] === 'edit') {
+    if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit' && $urlSegments[3] === 'submit') {
+        require_once './app/controllers/mahasiswa/MEditProfilController.php';
+        $controller = new MEditProfilController();
+        $controller->submitNewPassword();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2]) && $urlSegments[3] === 'edit') {
         require_once './app/controllers/dpa/DPEditPelanggaranController.php';
         $controller = new DPEditPelanggaranController($urlSegments[2]);
         $controller->index();
