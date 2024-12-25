@@ -1,7 +1,3 @@
-<?php 
-require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +29,6 @@ require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
 
     <!-- Navbar -->
     <?php 
-    $idPegawai = $_SESSION['id_pegawai'];
     include "components/header.php"
     ?>     
     <!-- Navbar End -->

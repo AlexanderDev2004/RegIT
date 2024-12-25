@@ -40,7 +40,7 @@ class LoginModel extends Model {
     }
 
     function getRoleUser($IdPegawai) {
-        $sql = "SELECT rp.role_pegawai 
+        $sql = "SELECT TOP 1 rp.role_pegawai 
                     FROM pegawai AS p
                     INNER JOIN role_pegawai AS rp ON p.id_role_pegawai = rp.id_role_pegawai
                     WHERE p.id_pegawai = ?";
@@ -49,6 +49,38 @@ class LoginModel extends Model {
             $result = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
             return $result['role_pegawai'];
         }
+    }
+
+    function getNameByID($id){
+        $GLOBALS["id"] = $id; ;
+
+        if(strlen($id) == 0){
+            return "NO ID PROVIDED!";
+        } else if ($this->isMahasiswa() || $this->isPegawai()) {
+            // Mahasiswa get name by nim
+            $nameColumn = $this->isMahasiswa() ? 'nama_mahasiswa' : 'nama_pegawai';
+            $tableName = $this->isMahasiswa() ? 'mahasiswa' : 'pegawai';
+            $idColumn = $this->isMahasiswa() ? 'nim' : 'id_pegawai';
+            $sql = "SELECT TOP 1 {$nameColumn} FROM {$tableName} WHERE {$idColumn} = ?";
+        } else {
+            return "NOT A VALID ID!";
+        }
+
+        $stmt = sqlsrv_prepare($this->db, $sql, array($id));
+        if ($stmt && sqlsrv_execute($stmt)) {
+            $result = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+            return $result[$nameColumn];
+        } else {
+            return "ID NOT FOUND!";
+        }
+    }
+
+    function isMahasiswa() {
+        return strlen($GLOBALS['id']) >= 10 && strlen($GLOBALS['id']) <= 12;
+    }
+
+    function isPegawai(){
+        return strlen($GLOBALS['id']) == 18;
     }
 }
 
