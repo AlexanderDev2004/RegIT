@@ -219,6 +219,10 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/mahasiswa/MEditProfilController.php';
         $controller = new MEditProfilController();
         $controller->submitNewPassword();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit' && $urlSegments[3] === 'submit') {
+        require_once './app/controllers/dosen/DEditProfilController.php';
+        $controller = new DEditProfilController();
+        $controller->submitNewPassword();
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit' && $urlSegments[3] === 'submit') {
         require_once './app/controllers/dpa/DPEditProfilController.php';
         $controller = new DPEditProfilController();

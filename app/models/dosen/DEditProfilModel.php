@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../Model.php';
 
-class DPEditProfilModel extends Model {
+class DEditProfilModel extends Model {
 
     public function checkOldPass(string $passwordLama){
         // Check if nim is available in kredensial_pegawai

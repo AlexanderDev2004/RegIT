@@ -1,6 +1,5 @@
 <?php
 
-
 require_once __DIR__ . '/../Controller.php';
 require_once __DIR__ . '/../../../app/models/dpa/DPPelanggaranModel.php';
 
@@ -75,6 +74,7 @@ class DPPelanggaranController extends Controller {
 
         // Memuat file view untuk halaman pelanggaran
         $dataPelanggaran = $this->getDataPelanggaran($_SESSION['id_pegawai']);
+
         require_once './app/views/dpa/pelanggaran.php';
     }
 

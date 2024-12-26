@@ -96,22 +96,22 @@
         <?php if (isset($data)): ?>
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">NIP</span>
-                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['id_pegawai']); ?></p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['id_pegawai'] ?? "-"); ?></p>
             </div>
 
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">Nama</span>
-                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_pegawai']); ?></p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_pegawai'] ?? "-"); ?></p>
             </div>
             
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">Prodi Yang Dibina</span>
-                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_prodi']); ?></p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_prodi'] ?? "-"); ?></p>
             </div>
 
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">Tanggung Jawab Kelas</span>
-                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_kelas']); ?></p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_kelas'] ?? "-"); ?></p>
             </div>
         <?php else: ?>
             <p class="ml-8 text-red-600">Data dpa tidak ditemukan!</p>
