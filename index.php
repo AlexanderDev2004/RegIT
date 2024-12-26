@@ -175,6 +175,10 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/dpa/DPEditProfilController.php';
         $controller = new DPEditProfilController();
         $controller->index();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'logout') {
+        require_once './app/controllers/dpa/DPProfilController.php';
+        $controller = new DPProfilController();
+        $controller->logout();
     } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2])) {
         require_once './app/controllers/dosen/DDetailPelanggaranController.php';
         $controller = new DDetailPelanggaranController($urlSegments[2]);
@@ -214,6 +218,10 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
     if ($urlSegments[0] === 'mahasiswa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit' && $urlSegments[3] === 'submit') {
         require_once './app/controllers/mahasiswa/MEditProfilController.php';
         $controller = new MEditProfilController();
+        $controller->submitNewPassword();
+    } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit' && $urlSegments[3] === 'submit') {
+        require_once './app/controllers/dpa/DPEditProfilController.php';
+        $controller = new DPEditProfilController();
         $controller->submitNewPassword();
     } else if ($urlSegments[0] === 'dpa' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2]) && $urlSegments[3] === 'edit') {
         require_once './app/controllers/dpa/DPEditPelanggaranController.php';

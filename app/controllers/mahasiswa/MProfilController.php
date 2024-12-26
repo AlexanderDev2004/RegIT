@@ -13,18 +13,14 @@ class MProfilController extends Controller {
             exit();
         }
 
+        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
+        $this->checkExpireSession();
+
         // Ambil data profil mahasiswa dari database
         $model = new MProfilModel();
         $data['profil'] = $model->getProfilMahasiswaByNIM($_SESSION['nim']); // Misalnya berdasarkan NIM di session
 
         // Kirim data ke view
         require_once './app/views/mahasiswa/Profile.php';
-    }
-
-    public function logout(){
-        session_start();
-        session_destroy();
-        header("Location: " . BASE_URL . "/login");
-        exit();
     }
 }

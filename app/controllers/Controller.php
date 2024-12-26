@@ -13,6 +13,13 @@ abstract class Controller {
             $_SESSION['LAST_ACTIVITY'] = time(); // Update last activity time
         }
     }
+
+    public function logout(){
+        session_start();
+        session_destroy();
+        header("Location: " . BASE_URL . "/login");
+        exit();
+    }
 }
 
 ?>
