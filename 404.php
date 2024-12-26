@@ -15,7 +15,7 @@
             <h1 class="text-6xl text-red-500 font-bold">404-Not Found</h1>
             <p class="text-2xl py-3">Halaman tidak ditemukan</p>
             <p class="text-gray-600 py-3">Anda mungkin salah mengetik URL atau halaman tersebut belum tersedia.</p>
-            <a href="/" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Kembali</a>
+            <a href=<?= BASE_URL . "/login" ?> class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Kembali</a>
         </div>
     </div>
 </body>
