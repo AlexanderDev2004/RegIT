@@ -197,6 +197,10 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/dosen/DEditProfilController.php';
         $controller = new DEditProfilController();
         $controller->index();
+    } else if ($urlSegments[0] === 'dosen' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'logout') {
+        require_once './app/controllers/dosen/DProfilController.php';
+        $controller = new DProfilController();
+        $controller->logout();
     } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'pelanggaran' && is_numeric($urlSegments[2])) {
         require_once './app/controllers/komdis/KDetailPelanggaranController.php';
         $controller = new KDetailPelanggaranController($urlSegments[2]);
