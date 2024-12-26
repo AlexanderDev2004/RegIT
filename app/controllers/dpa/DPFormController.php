@@ -20,6 +20,9 @@ class DPFormController extends Controller {
             exit();
         }
 
+        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
+        $this->checkExpireSession();
+
         // Data dari database untuk ditampilkan di form (opsional)
         $data = $this->model->getAll();
         require_once './app/views/dpa/formDPA.php';

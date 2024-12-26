@@ -1,5 +1,6 @@
 <?php 
 
+require_once './app/models/dpa/DPBerandaModel.php';
 require_once __DIR__ . '/../Controller.php';
 
 class DPBerandaController extends Controller {
@@ -12,6 +13,15 @@ class DPBerandaController extends Controller {
             header("Location: " . BASE_URL . "/login");
             exit();
         }
+
+        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
+        $this->checkExpireSession();
+
+        // Get Data from Model
+        $model = new DPBerandaModel();
+        $chartData = $model->getPelanggaranData();
+        
+        $encodedJsonChartData = json_encode($chartData);
 
         // Memuat file view untuk halaman beranda
         require_once './app/views/dpa/beranda.php';

@@ -90,6 +90,7 @@
                         <th class="border border-blue-200 px-4 py-2">Sanksi</th>
                         <th class="border border-blue-200 px-4 py-2">Tanggal Sanksi</th>
                         <th class="border border-blue-200 px-4 py-2">Status Pelanggaran</th>
+                        <th class="border border-blue-200 px-4 py-2">Pelapor</th>
                         <th class="border border-blue-200 px-4 py-2">Lainnya</th>
                     </tr>
                 </thead>
@@ -129,6 +130,7 @@
                         <td class="border border-blue-200 px-4 py-2"><?= $data["jenis_sanksi"] ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center"><?= date_format($data["tgl_sanksi"], "Y-m-d") ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["status_pelanggaran"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["nama_pegawai"] ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center">
                             <div class="flex justify-center space-x-2"> 
                                 <button type="button" onclick="window.location.href='./pelanggaran/1'" 

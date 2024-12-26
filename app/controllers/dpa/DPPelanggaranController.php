@@ -1,6 +1,5 @@
 <?php
 
-
 require_once __DIR__ . '/../Controller.php';
 require_once __DIR__ . '/../../../app/models/dpa/DPPelanggaranModel.php';
 
@@ -70,8 +69,12 @@ class DPPelanggaranController extends Controller {
             exit();
         }
 
+        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
+        $this->checkExpireSession();
+
         // Memuat file view untuk halaman pelanggaran
         $dataPelanggaran = $this->getDataPelanggaran($_SESSION['id_pegawai']);
+
         require_once './app/views/dpa/pelanggaran.php';
     }
 

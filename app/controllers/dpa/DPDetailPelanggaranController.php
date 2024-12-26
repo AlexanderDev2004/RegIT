@@ -13,6 +13,9 @@ class DPDetailPelanggaranController extends Controller {
             exit();
         }
 
+        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
+        $this->checkExpireSession();
+
         // Memuat file view untuk halaman beranda
         require_once './app/views/dpa/detailPelanggaran.php';
     }
