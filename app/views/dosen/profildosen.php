@@ -103,7 +103,7 @@
 
         <!-- Logout Button -->
         <div class="flex mt-10">
-            <a href="../login" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
+            <a href="./profil/logout" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
                 <img src=".././public/logout.svg" alt="" class="ml-2">
                 <span class="pl-2">Logout</span>
             </a>
