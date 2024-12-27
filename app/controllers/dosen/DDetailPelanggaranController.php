@@ -1,5 +1,6 @@
 <?php 
 
+require_once './app/models/dosen/DDetailPelanggaranModel.php';
 require_once __DIR__ . '/../Controller.php';
 
 class DDetailPelanggaranController extends Controller {
@@ -20,7 +21,13 @@ class DDetailPelanggaranController extends Controller {
         $this->idPelanggaran = $idPelanggaran;
     }
 
-    public function index() {
+    public function index(){
+        // model
+        $detailPelanggaranModel = new DDetailPelanggaranModel();
+
+        // Get Data pelanggaran dari model
+        $dataPelanggaran = $detailPelanggaranModel->getDetailPelanggaranFromID($this->idPelanggaran);
+
         // Memuat file view untuk halaman beranda
         require_once './app/views/dosen/detailPelanggaran.php';
     }

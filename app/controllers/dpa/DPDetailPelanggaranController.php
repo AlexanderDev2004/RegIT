@@ -1,10 +1,12 @@
 <?php 
 
+require_once './app/models/dpa/DPDetailPelanggaranModel.php';
 require_once __DIR__ . '/../Controller.php';
 
 class DPDetailPelanggaranController extends Controller {
+    private $idPelanggaran;
 
-    public function index(){
+    public function __construct($idPelanggaran) {
         session_start();
         
         // Mengecek jika pengguna sudah login
@@ -15,6 +17,16 @@ class DPDetailPelanggaranController extends Controller {
 
         // Mengecek apakah user masih aktif di sesion ini selama 30 menit
         $this->checkExpireSession();
+
+        $this->idPelanggaran = $idPelanggaran;
+    }
+
+    public function index(){
+        // model 
+        $detailPelanggaranModel = new DPDetailPelanggaranModel();
+
+        // Get Data pelanggaran dari model
+        $dataPelanggaran = $detailPelanggaranModel->getDetailPelanggaranFromID($this->idPelanggaran);
 
         // Memuat file view untuk halaman beranda
         require_once './app/views/dpa/detailPelanggaran.php';
