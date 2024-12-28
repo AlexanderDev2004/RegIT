@@ -23,7 +23,8 @@ class DPelanggaranModel extends Model {
         $resultDataPelanggaran = [];
 
         // SQL Query
-        $sqlDataPelanggaranByDPA = "SELECT m.nama_mahasiswa
+        $sqlDataPelanggaranByDPA = "SELECT p.id_pelanggaran
+                                        , m.nama_mahasiswa
                                         , p.tgl_pelanggaran
                                         , t.deskripsi
                                         , t.level_tatib
