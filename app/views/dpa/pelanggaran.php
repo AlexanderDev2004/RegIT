@@ -133,7 +133,7 @@
                         <td class="border border-blue-200 px-4 py-2"><?= $data["nama_pegawai"] ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center">
                             <div class="flex justify-center space-x-2"> 
-                                <button type="button" onclick="window.location.href='./pelanggaran/1'" 
+                                <button type="button" onclick="getDetailPelanggaran(<?= $data['id_pelanggaran'] ?>)"
                                     class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                     <img src=".././public/Details.svg" alt="" class="">
                                     <span class="ml-2">Detail</span>    
@@ -151,5 +151,11 @@
             </table>
         </div>
     </div>
+
+    <script>
+        function getDetailPelanggaran(idPelanggaran){
+            window.location.href='./pelanggaran/' + idPelanggaran;
+        }
+    </script>
 </body>
 </html>

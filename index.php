@@ -213,7 +213,7 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/admin/ADetailMController.php';
         $controller = new ADetailMController($urlSegments[2]);
         $controller->index();
-    }else {
+    } else {
         require_once './app/controllers/not_found/NotFoundController.php';
         $controller = new NotFoundController();
         $controller->index();
