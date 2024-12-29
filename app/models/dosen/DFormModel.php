@@ -22,10 +22,9 @@ class DFormDosenModel extends Model {
 
         // Cek error jika ada
         if ($stmt === false) {
-            $errors = sqlsrv_errors();
-            die("Error dalam eksekusi prosedur: " . print_r($errors, true));
+            throw new Exception(print_r(sqlsrv_errors(), true));
         }
-
+        
         // Tutup statement
         sqlsrv_free_stmt($stmt);
     }
