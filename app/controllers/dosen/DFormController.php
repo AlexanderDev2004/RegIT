@@ -7,43 +7,54 @@ class DFormController extends Controller {
     public function index() {
         session_start();
         
-        // Mengecek jika pengguna sudah login
         if (!isset($_SESSION['id_pegawai'])) {
             header("Location: " . BASE_URL . "/login");
             exit();
         }
 
-        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
         $this->checkExpireSession();
         
-        // Memuat file view untuk halaman beranda
         require_once './app/views/dosen/formDosen.php';
     }
 
     public function createLaporanPelanggaran() {
+        session_start(); // Pastikan session sudah dimulai
+
         $model = new DFormDosenModel();
 
+        // Debugging: Cetak data POST dan FILES
+        echo "<pre>";
+        print_r($_POST);
+        print_r($_FILES);
+        echo "</pre>";
+
         // Validasi dan ambil data dari form
-        $nim = $_POST['nim'];
-        if (strlen($nim) > 12) {
+        if (!isset($_POST['nim'], $_POST['status_pelanggaran'], $_POST['pelanggaran'], $_POST['tanggal'], $_FILES['image'])) {
+            die("Data form tidak lengkap.");
+        }
+
+        $Nim = $_POST['nim'];
+        if (strlen($Nim) > 12) {
             die("NIM terlalu panjang, maksimum 12 karakter.");
         }
 
-        $idStatusPelanggaran = (int) $_POST['status_pelanggaran'];
-        $idPegawai = $_SESSION['id_pegawai']; // Validasi session harus sudah ada
-        $idTataTertib = (int) $_POST['pelanggaran'];
-        $tglPelanggaran = date('d-m-Y H:i:s', strtotime($_POST['tanggal'])); // Format datetime
+        $IdStatusPelanggaran = (int) $_POST['status_pelanggaran'];
+        $IdPegawai = $_SESSION['id_pegawai']; // Pastikan session id_pegawai sudah ada
+        $IdTataTertib = (int) $_POST['pelanggaran'];
+        $TglPelanggaran = date('Y-m-d H:i:s', strtotime($_POST['tanggal']));// Format datetime untuk SQL Server
 
-        $fileName = $_FILES['image']['name'];
-        $imageData = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+        $FileName = $_FILES['image']['name'];
+        $ImageData = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+
+        // Debugging: Cetak data yang akan dikirim ke model
+        echo "NIM: $Nim, Status Pelanggaran: $IdStatusPelanggaran, ID Pegawai: $IdPegawai, ID Tata Tertib: $IdTataTertib, Tanggal: $TglPelanggaran, File Name: $FileName, Image Data: $ImageData";
 
         // Kirim data ke model
-        $model->createLaporanPelanggaranDosen($nim, $idStatusPelanggaran, $idPegawai, $idTataTertib, $tglPelanggaran, $fileName, $imageData);
+        $model->CreateLaporanPelanggaranDosen($Nim, $IdStatusPelanggaran, $IdPegawai, $IdTataTertib, $TglPelanggaran, $FileName, $ImageData);
 
         // Redirect dengan pesan sukses
-        header("Location: dosen.php?success=1");
+        header("Location: " . BASE_URL . "/dosen?success=1");
         exit();
     }
 }
-
 ?>
