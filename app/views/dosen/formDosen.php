@@ -83,25 +83,26 @@
         <form action="<?= BASE_URL . '/dosen/form/submit'?>" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
                 <label for="nim" class="block text-sm font-medium text-gray-700">NIM</label>
-                <input type="number" id="nim" name="nim" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Masukkan NIM">
+                <input type="number" id="nim" name="nim" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Masukkan NIM" required>
             </div>
             <div class="mb-4">
                 <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal Pelanggaran</label>
-                <input type="date" id="tanggal" name="tanggal" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                <input type="date" id="tanggal" name="tanggal" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
             </div>
             <div class="mb-4">
                 <label for="pelanggaran" class="block text-sm font-medium text-gray-700">Pelanggaran</label>
-                <select id="pelanggaran" name="pelanggaran" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                <select id="pelanggaran" name="pelanggaran" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
                     <option value="1">Berbusana tidak sopan</option>
+                    <option value="2">Berkata Tidak sopan</option>
                 </select>
             </div>
             <div class="mb-4">
                 <label for="image" class="block text-sm font-medium text-gray-700">Upload Bukti</label>
-                <input type="file" id="image" name="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                <input type="file" id="image" name="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
             </div>
             <div class="flex justify-between">
-                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md" onclick="window.location.href='pelanggaran'">Simpan</button>
-                <button type="reset" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onclick="window.location.href='dashboard'">Kembali</button>
+                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md">Simpan</button>
+                <button type="reset" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md">Kembali</button>
             </div>
         </form>
     </div>
@@ -111,3 +112,4 @@
     <!-- Footer End -->
 </body>
 </html>
+

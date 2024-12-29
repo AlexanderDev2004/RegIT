@@ -2,19 +2,19 @@
 require_once __DIR__ . '/../Model.php';
 
 class DFormDosenModel extends Model {
-    public function createLaporanPelanggaranDosen($nim, $idStatusPelanggaran, $idPegawai, $idTataTertib, $tglPelanggaran, $fileName, $imageData) {
+    public function CreateLaporanPelanggaranDosen($Nim, $IdStatusPelanggaran, $IdPegawai, $IdTataTertib, $TglPelanggaran, $FileName, $ImageData) {
         // Prosedur SQL Server dengan parameter input
         $sql = "{CALL CreateLaporanPelanggaranDosen(?, ?, ?, ?, ?, ?, ?)}";
 
-        // Format parameter sesuai dengan tipe data yg di SQL Server 
+        // Format parameter sesuai dengan tipe data yang di SQL Server 
         $params = [
-            [$nim, SQLSRV_PARAM_IN],                   
-            [$idStatusPelanggaran, SQLSRV_PARAM_IN],   
-            [$idPegawai, SQLSRV_PARAM_IN],            
-            [$idTataTertib, SQLSRV_PARAM_IN],         
-            [$tglPelanggaran, SQLSRV_PARAM_IN],       
-            [$fileName, SQLSRV_PARAM_IN],             
-            [$imageData, SQLSRV_PARAM_IN]             
+            [$Nim, SQLSRV_PARAM_IN],                   
+            [$IdStatusPelanggaran, SQLSRV_PARAM_IN],   
+            [$IdPegawai, SQLSRV_PARAM_IN],            
+            [$IdTataTertib, SQLSRV_PARAM_IN],         
+            [$TglPelanggaran, SQLSRV_PARAM_IN],       
+            [$FileName, SQLSRV_PARAM_IN],             
+            [$ImageData, SQLSRV_PARAM_IN]             
         ];
 
         // Eksekusi prosedur
@@ -22,7 +22,12 @@ class DFormDosenModel extends Model {
 
         // Cek error jika ada
         if ($stmt === false) {
-            die(print_r(sqlsrv_errors(), true));
+            $errors = sqlsrv_errors();
+            die("Error dalam eksekusi prosedur: " . print_r($errors, true));
         }
+
+        // Tutup statement
+        sqlsrv_free_stmt($stmt);
     }
 }
+?>
