@@ -30,7 +30,9 @@
 </head>
 <body class="bg-[#EBEEF5] scale font-poppins">
     <!-- Navbar -->
-    <?php include "components/header.php"?>     
+    <?php 
+    include "components/header.php"
+    ?>     
     <!-- Navbar End -->
 
     <!-- SideBar -->
@@ -56,13 +58,13 @@
                 </svg>
                     <span class="">Form</span>
                 </a>
-                <a href="pelanggaran" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600 bg-[#F99D1C]">
+                <a href="pelanggaran" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18ZM4 10H14V8H4V10Z" fill="white"/>
                 </svg>
                     <span class="">Pelanggaran</span>
                 </a>
-                <a href="profil" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600">
+                <a href="profil" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600 bg-[#F99D1C]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 15.0141 20.6665 17.7167 18.5573 19.5501C18.0996 18.3251 17.306 17.2481 16.2613 16.4465C15.0388 15.5085 13.5409 15 12 15C10.4591 15 8.96118 15.5085 7.73867 16.4465C6.69405 17.2481 5.90038 18.3251 5.44269 19.5501C3.33349 17.7167 2 15.0141 2 12ZM16.8296 20.7059C16.8337 20.7212 16.8381 20.7363 16.8429 20.7512C15.4081 21.5469 13.757 22 12 22C10.243 22 8.59193 21.5469 7.15711 20.7512C7.16185 20.7363 7.16628 20.7212 7.17037 20.7059C7.45525 19.6427 8.08297 18.7033 8.95619 18.0332C9.82942 17.3632 10.8993 17 12 17C13.1007 17 14.1706 17.3632 15.0438 18.0332C15.917 18.7033 16.5448 19.6427 16.8296 20.7059ZM10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9ZM12 5C9.79086 5 8 6.79086 8 9C8 11.2091 9.79086 13 12 13C14.2091 13 16 11.2091 16 9C16 6.79086 14.2091 5 12 5Z" fill="white"/>
                 <rect x="2.5" y="2.5" width="19" height="19" rx="9.5" stroke="white"/>
@@ -90,19 +92,35 @@
         
         <!-- Edit Password End -->
 
-        <div class="overflow-x-auto gap-x-0 gap-y-8">
+        <!-- tampilkan profil dpa -->
+        <?php if (isset($data)): ?>
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">NIP</span>
-                <p class="ml-8 text-gray-600">19801901 1 005</p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['id_pegawai'] ?? "-"); ?></p>
             </div>
+
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">Nama</span>
-                <p class="ml-8 text-gray-600">Dosen DPA23</p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_pegawai'] ?? "-"); ?></p>
             </div>
-        </div>
+            
+            <div class="mt-8 mb-6">
+                <span class="font-bold text-[#132145] ml-8">Prodi Yang Dibina</span>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_prodi'] ?? "-"); ?></p>
+            </div>
+
+            <div class="mt-8 mb-6">
+                <span class="font-bold text-[#132145] ml-8">Tanggung Jawab Kelas</span>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_kelas'] ?? "-"); ?></p>
+            </div>
+        <?php else: ?>
+            <p class="ml-8 text-red-600">Data dpa tidak ditemukan!</p>
+        <?php endif; ?>
+        
+       
         <!-- Logout Button -->
          <div class="flex mt-10">
-            <a href="../login" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
+            <a href="./profil/logout" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
                 <img src=".././public/logout.svg" alt="" class="ml-2">
                     <span class="pl-2">Logout</span>
             </a>

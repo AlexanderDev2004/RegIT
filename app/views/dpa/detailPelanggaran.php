@@ -30,7 +30,9 @@
 </head>
 <body class="bg-[#EBEEF5] scale font-poppins">
     <!-- Navbar -->
-    <?php include "components/header.php"?>     
+    <?php 
+    include "components/header.php"
+    ?>     
     <!-- Navbar End -->
 
     <!-- SideBar -->
@@ -91,39 +93,39 @@
             <div class="overflow-x-auto grid grid-cols-3 gap-x-0 gap-y-8">
                 <div class="mt-6 mb-2">
                     <span class="font-bold text-[#132145] ml-8">NIM</span>
-                    <p class="ml-8 text-gray-600">2341720220</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nim"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Nama</span>
-                    <p class="ml-8 text-gray-600">Fiera Ziadattun Nisa'</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nama_mahasiswa"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Angkatan</span>
-                    <p class="ml-8 text-gray-600">2023</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["angkatan"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Prodi</span>
-                    <p class="ml-8 text-gray-600">DIV Teknik Informatika</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nama_prodi"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Kelas</span>
-                    <p class="ml-8 text-gray-600">2H</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nama_kelas"] ?></p>
                 </div>
                 <div class="mt-6">
                     <span class="font-bold text-[#132145] ml-8">Status Mahasiswa</span>
-                    <p class="ml-8 text-gray-600">Aktif</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["status_mahasiswa"] ?></p>
                 </div>
                 <div class="mt-6">
                     <span class="font-bold text-[#132145] ml-8">Tanggal Pelanggaran</span>
-                    <p class="ml-8 text-gray-600">12-11-2024</p>
+                    <p class="ml-8 text-gray-600"><?= date_format($dataPelanggaran["tgl_pelanggaran"], "d-m-Y") ?></p>
                 </div>
                 <div class="mt-6">
                     <span class="font-bold text-[#132145] ml-8">Tingkat Pelanggaran</span>
-                    <p class="ml-8 text-gray-600">V</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["level_tatib"] ?></p>
                 </div>
                 <div class="mt-6">
                     <span class="font-bold text-[#132145] ml-8">Tanggal Sanksi</span>
-                    <p class="ml-8 text-gray-600">12-11-2024</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["tgl_sanksi"] !== null ? date_format($dataPelanggaran["tgl_sanksi"], "d-m-Y") : "<span style='color:red'>--- Belum Diberikan ---</span>" ?></p>
                 </div>
             </div>
 
@@ -132,7 +134,7 @@
                     <div class="font-bold text-[#132145] ml-8">Bukti Pelanggaran</div>
                 </div>
                 <button class="bg-white text-blue-400 text-sm ml-8 flex-row">
-                    <p>bukti.jpg</p>
+                    <p><?= $dataPelanggaran["file_name"] ?></p>
                 </button>
             </div>
 
@@ -140,19 +142,19 @@
                 <div class="flex mt-6">
                     <span class="font-bold text-[#132145] ml-8">Deskripsi Pelanggaran</span>
                 </div>
-                <p class="ml-8 text-gray-600">Berbusana tidak sopan dan tidak rapi (misalnya memakai kaos tidak berkerah, rok mini, sandal, dll).</p>
+                <p class="ml-8 text-gray-600"><?= $dataPelanggaran["deskripsi"] ?></p>
             </div>
             <div>
                 <div class="flex mt-6">
                     <span class="font-bold text-[#132145] ml-8">Sanksi</span>
                 </div>
-                <p class="ml-8 text-gray-600">Teguran lisan disertai surat pernyataan bermaterai yang ditandatangani mahasiswa dan DPA</p>
+                <p class="ml-8 text-gray-600"><?= $dataPelanggaran["jenis_sanksi"] ?? "<span style='color:red'>--- Belum Diberikan ---</span>" ?></p>
             </div>
             <div>
                 <div class="flex mt-6">
                     <span class="font-bold text-[#132145] ml-8">Status Pelanggaran</span>
                 </div>
-                <p class="ml-8 text-gray-600">Selesai</p>
+                <p class="ml-8 text-gray-600"><?= "<span style='color:". (($dataPelanggaran["status_pelanggaran"] === "Belum Selesai") ? "red" : "green") ."'>" . $dataPelanggaran["status_pelanggaran"] . "</span>" ?></p>
             </div>
 
             <button

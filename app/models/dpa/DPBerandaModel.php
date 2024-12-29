@@ -1,5 +1,6 @@
 <?php 
 
+require_once __DIR__ . '/../traits/BerandaTrait.php';
 require_once __DIR__ . '/../Model.php';
 
 class DPBerandaModel extends Model {

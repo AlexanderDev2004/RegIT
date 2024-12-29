@@ -30,9 +30,10 @@
 </head>
 <body class="bg-[#EBEEF5] font-poppins">
     <!-- Navbar -->
-    <?php include "components/header.php"?>
+    <?php 
+    include "components/header.php"
+    ?>     
     <!-- Navbar End -->
-
     <!-- SideBar -->
     <div class="flex w-full mx-auto">
         <div class="w-64 h-screen bg-[#132145] text-white flex flex-col items-center py-6 absolute top-0">

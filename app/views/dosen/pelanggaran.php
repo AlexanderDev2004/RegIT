@@ -94,7 +94,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white">
+                    <!-- <tr class="bg-white">
                         <td class="border border-blue-200 px-4 py-2 text-center">1</td>
                         <td class="border border-blue-200 px-4 py-2">FIERA ZIADATTUN NISA'</td>
                         <td class="border border-blue-200 px-4 py-2">12-11-2024</td>
@@ -104,14 +104,46 @@
                         <td class="border border-blue-200 px-4 py-2 text-center">12-11-2024</td>
                         <td class="border border-blue-200 px-4 py-2 text-center">Selesai</td>
                         <td class="border border-blue-200 px-4 py-2 text-center">
-                            <button type="button" onclick="window.location.href='detail'" class="w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700">
+                            <button type="button" onclick="window.location.href='./pelanggaran/1'" class="w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700">
                                 Lihat Detail
                             </button>
                         </td>
+                    </tr> -->
+                    <?php $i = 1; foreach($dataPelanggaran as $data): ?>
+                    <tr class="bg-white">
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $i++ ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["nama_mahasiswa"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= date_format($data["tgl_pelanggaran"], "d-m-Y") ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["deskripsi"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["level_tatib"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["jenis_sanksi"] ?? "<span style='color:red'>--- Belum Diberikan ---</span>" ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["tgl_sanksi"] !== null ? date_format($data["tgl_sanksi"], "d-m-Y") : "<span style='color:red'>--- Belum Diberikan ---</span>" ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["status_pelanggaran"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center">
+                            <div class="flex justify-center space-x-2"> 
+                                <button type="button" onclick="getDetailPelanggaran(<?= $data['id_pelanggaran'] ?>)"
+                                    class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                    <img src=".././public/Details.svg" alt="" class="">
+                                    <span class="ml-2">Detail</span>    
+                                </button>
+                                <button type="button" 
+                                    class="flex flex-row w-28 px-4 py-2 bg-[#FF3B30] text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                    <img src=".././public/Trash.svg" alt="">
+                                    <span class="ml-2">Hapus</span>
+                                </button>
+                            </div>
+                        </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <script>
+        function getDetailPelanggaran(idPelanggaran){
+            window.location.href='./pelanggaran/' + idPelanggaran;
+        }
+    </script>
 </body>
 </html>

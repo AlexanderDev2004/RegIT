@@ -6,7 +6,7 @@ class MProfilModel extends Model {
 
     public function getProfilMahasiswaByNIM($nim): array {
         // Query SQL
-        $query = "SELECT nim, nama_prodi, nama_mahasiswa, nama_kelas, angkatan, status_mahasiswa
+        $query = "SELECT TOP 1 nim, nama_prodi, nama_mahasiswa, nama_kelas, angkatan, status_mahasiswa
                 FROM mahasiswa AS m
                 INNER JOIN prodi AS p ON m.id_prodi = p.id_prodi
                 INNER JOIN kelas AS k ON m.id_kelas = k.id_kelas

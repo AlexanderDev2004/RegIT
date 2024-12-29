@@ -58,15 +58,15 @@
                 </thead>
                 <tbody>
                     <?php if (!empty($data['pelanggaran'])): ?>
-                        <?php $no = 1; foreach ($data['pelanggaran'] as $bulan => $jumlah): ?>
+                        <?php $no = 1; foreach ($data['pelanggaran'] as $pelanggaran): ?>
                             <tr class="bg-white">
                                 <td class="border border-[#132145] px-4 py-2 text-center"><?= $no++; ?></td>
-                                <td class="border border-[#132145] px-4 py-2"><?= $bulan; ?></td>
-                                <td class="border border-[#132145] px-4 py-2"><?= $jumlah; ?></td>
-                                <td class="border border-[#132145] px-4 py-2 text-center">-</td>
-                                <td class="border border-[#132145] px-4 py-2">-</td>
-                                <td class="border border-[#132145] px-4 py-2 text-center">-</td>
-                                <td class="border border-[#132145] px-4 py-2 text-center">-</td>
+                                <td class="border border-[#132145] px-4 py-2"><?= $pelanggaran['tgl_pelanggaran']; ?></td>
+                                <td class="border border-[#132145] px-4 py-2"><?= $pelanggaran['deskripsi_pelanggaran']; ?></td>
+                                <td class="border border-[#132145] px-4 py-2 text-center"><?= $pelanggaran['tingkat']; ?></td>
+                                <td class="border border-[#132145] px-4 py-2"><?= $pelanggaran['sanksi']; ?></td>
+                                <td class="border border-[#132145] px-4 py-2 text-center"><?= $pelanggaran['tgl_sanksi']; ?></td>
+                                <td class="border border-[#132145] px-4 py-2 text-center"><?= $pelanggaran['status_pelanggaran']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>

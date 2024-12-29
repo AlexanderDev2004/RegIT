@@ -62,7 +62,7 @@
     </div>
     <div>
         <span class="font-bold text-[#132145]">Nama</span>
-        <p><?= htmlspecialchars($data['profil']['nama'] ?? 'Data tidak tersedia'); ?></p>
+        <p><?= htmlspecialchars($data['profil']['nama_mahasiswa'] ?? 'Data tidak tersedia'); ?></p>
     </div>
     <div>
         <span class="font-bold text-[#132145]">Nama Kelas</span>
@@ -74,14 +74,14 @@
     </div>
     <div>
         <span class="font-bold text-[#132145]">Status Mahasiswa</span>
-        <p><?= htmlspecialchars($data['profil']['status'] ?? 'Data tidak tersedia'); ?></p>
+        <p><?= htmlspecialchars($data['profil']['status_mahasiswa'] ?? 'Data tidak tersedia'); ?></p>
     </div>
 </div>
 
 
             <!-- Logout Button -->
             <div class="flex mt-6 ">                
-                <a href="../login" class="flex flex-row bg-red-500 w-28 text-white py-2 rounded-md hover:bg-red-600 px-auto">
+                <a href="./profil/logout" class="flex flex-row bg-red-500 w-28 text-white py-2 rounded-md hover:bg-red-600 px-auto">
                     <img src=".././public/logout.svg" alt="" class="ml-2">
                     <span class="ml-4">Keluar</span>
                 </a>

@@ -1,20 +1,23 @@
 <?php
 
-class DProfilDosenModel {
-    private $db;
+require_once __DIR__ . '/../Model.php';
 
-    public function __construct() {
-        // Asumsikan $this->db adalah koneksi database
-        $this->db = new mysqli('localhost', 'username', 'password', 'database');
-        
-        if ($this->db->connect_error) {
-            die("Connection failed: " . $this->db->connect_error);
-        }
-    }
+class DProfilModel extends Model {
 
     public function getProfilDosenByNIP($nip) {
-        $query = "SELECT * FROM dosen WHERE nip = '$nip'";
-        return $this->db->query($query);
+        $sql = "SELECT TOP 1 p.id_pegawai, p.nama_pegawai
+                FROM pegawai AS p
+                WHERE p.id_pegawai = ?";
+
+        $stmt = sqlsrv_prepare($this->db, $sql, array($nip));
+
+        if (!$stmt || !sqlsrv_execute($stmt)) {
+            die("Error preparing statement or executing query: " . print_r(sqlsrv_errors(), true));
+        }
+
+        $result = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+        return $result ?? null;
     }
 }
 ?>
