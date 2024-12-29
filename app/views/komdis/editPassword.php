@@ -75,28 +75,28 @@
     
     <!-- Edit Password -->
     <div class="bg-white p-6 border border-grey-800 rounded-xl shadow-xl w-11/12 lg:w-3/4 ml-80">
-        <form action="POST">
+        <form action= <?= BASE_URL . "/komdis/profil/edit/submit" ?> method="POST">
             <!-- Password Lama -->
             <div class="mb-4">
                 <label for="password-lama" class="block text-[#132145] font-bold mb-2">Password Lama</label>
-                <input type="password" id="password-lama" class="w-full border border-blue-400 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="********">
+                <input type="password" id="password-lama" name="password-lama" class="w-full border border-blue-400 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="********">
             </div>
 
             <!-- Password Baru -->
             <div class="mb-4">
                 <label for="password-baru" class="block text-[#132145] font-bold mb-2">Password Baru</label>
-                <input type="password" id="password-baru" class="w-full border border-blue-400 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="********">
+                <input type="password" id="password-baru" name="password-baru" class="w-full border border-blue-400 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="********">
             </div>
 
             <!-- Konfirmasi Password -->
             <div class="mb-4">
                 <label for="konfirmasi-password" class="block text-[#132145] font-bold mb-2">Konfirmasi Password</label>
-                <input type="password" id="konfirmasi-password" class="w-full border border-blue-400 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="********">
+                <input type="password" id="konfirmasi-password" name="konfirmasi-password" class="w-full border border-blue-400 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="********">
             </div>
             
             <!-- Tombol Aksi -->
             <div class="flex justify-between w-72">
-                <button type="submit" onclick="window.location.href='../profil'" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
                     <i class="fa-solid fa-circle-check"></i>
                     <span class="font-semibold ml-2">Simpan</span>
                 </button>

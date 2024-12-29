@@ -1,32 +1,13 @@
 <?php
 
 require_once __DIR__ . '/../Model.php';
-require_once __DIR__ . '/../../core/db_config.php';
 
 class KPelanggaranModel extends Model {
-    protected $db;
-
-    public function __construct() {
-        // Use SQL Server connection with proper configuration
-        $serverName = DB_SERVER;
-        $connectionOptions = [
-            "Database" => DB_NAME,  // Nama database Anda
-            "Uid" => DB_NAME        // Username Anda
-        ];
-
-        // Jika tanpa password, gunakan autentikasi Windows (Trusted Connection)
-        // Jangan tambahkan "PWD" => DB_PASS
-        $this->db = sqlsrv_connect($serverName, $connectionOptions);
-
-        if ($this->db === false) {
-            die("Connection failed: " . print_r(sqlsrv_errors(), true));
-        }
-    }
 
     // Method to fetch Pelanggaran Tingkat 1
     public function getPelanggaranTingkat1() {
-        $query = "
-            SELECT m.nim, 
+        $query = "SELECT p.id_pelanggaran,
+                   m.nim, 
                    m.nama_mahasiswa, 
                    p.tgl_pelanggaran, 
                    tt.deskripsi, 
@@ -40,8 +21,7 @@ class KPelanggaranModel extends Model {
             LEFT JOIN sanksi AS s ON s.id_pelanggaran = p.id_pelanggaran
             INNER JOIN status_pelanggaran AS sp ON sp.id_status_pelanggaran = p.id_status_pelanggaran
             INNER JOIN status_mahasiswa AS sm ON sm.id_status_mahasiswa = m.id_status_mhs
-            WHERE tt.level_tatib = 1
-        ";
+            WHERE tt.level_tatib = 1";
 
         $stmt = sqlsrv_query($this->db, $query);
 
@@ -51,7 +31,17 @@ class KPelanggaranModel extends Model {
 
         $result = [];
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-            $result[] = $row;
+            $result[] = [
+                'id_pelanggaran' => $row['id_pelanggaran'],
+                'nim' => $row['nim'],
+                'nama_mahasiswa' => $row['nama_mahasiswa'],
+                'tgl_pelanggaran' => $row['tgl_pelanggaran']->format('d-m-Y'),
+                'deskripsi' => $row['deskripsi'],
+                'jenis_sanksi' => $row['jenis_sanksi'],
+                'tgl_sanksi' => $row['tgl_sanksi']->format('d-m-Y'),
+                'status_pelanggaran' => $row['status_pelanggaran'],
+                'status_mahasiswa' => $row['status_mahasiswa']
+            ];
         }
 
         return $result;
