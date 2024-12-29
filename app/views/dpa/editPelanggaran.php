@@ -180,48 +180,48 @@
     <!-- Footer End -->
 
     <script>
-    let tataTertibData = <?= json_encode($listTatib); ?>; // Kirim data tata tertib dari PHP ke JavaScript
+        let tataTertibData = <?= json_encode($listTatib); ?>; // Kirim data tata tertib dari PHP ke JavaScript
 
-    // Isi dropdown 'tatib' dengan data yang sudah ada dari PHP
-    document.addEventListener("DOMContentLoaded", function() {
-        const tatibSelect = document.getElementById('tatib');
-        
-        // Kosongkan dropdown 'tatib' sebelum mengisi
-        tatibSelect.innerHTML = '';
+        // Isi dropdown 'tatib' dengan data yang sudah ada dari PHP
+        document.addEventListener("DOMContentLoaded", function() {
+            const tatibSelect = document.getElementById('tatib');
+            
+            // Kosongkan dropdown 'tatib' sebelum mengisi
+            tatibSelect.innerHTML = '';
 
-        // Ambil level_tatib yang sudah dipilih sebelumnya
-        const levelTingkatPelanggaran = "<?= $dataPelanggaran['level_tatib']; ?>";
+            // Ambil level_tatib yang sudah dipilih sebelumnya
+            const levelTingkatPelanggaran = "<?= $dataPelanggaran['level_tatib']; ?>";
 
-        // Filter data tata tertib sesuai dengan level yang sudah dipilih
-        const filteredData = tataTertibData.filter(item => item.level_tatib == levelTingkatPelanggaran);
+            // Filter data tata tertib sesuai dengan level yang sudah dipilih
+            const filteredData = tataTertibData.filter(item => item.level_tatib == levelTingkatPelanggaran);
 
-        // Isi dropdown 'tatib' dengan data yang sudah dipilih
-        filteredData.forEach(tatib => {
-            const option = document.createElement('option');
-            option.value = tatib.id_tata_tertib;
-            option.textContent = tatib.deskripsi;
-            tatibSelect.appendChild(option);
+            // Isi dropdown 'tatib' dengan data yang sudah dipilih
+            filteredData.forEach(tatib => {
+                const option = document.createElement('option');
+                option.value = tatib.id_tata_tertib;
+                option.textContent = tatib.deskripsi;
+                tatibSelect.appendChild(option);
+            });
         });
-    });
 
-    // Event listener untuk dropdown Tingkat Pelanggaran
-    document.getElementById('pelanggaran').addEventListener('change', function () {
-        const level = this.value; // Ambil level yang dipilih
-        const tatibSelect = document.getElementById('tatib');
-        tatibSelect.innerHTML = ''; // Kosongkan dropdown Pelanggaran
+        // Event listener untuk dropdown Tingkat Pelanggaran
+        document.getElementById('pelanggaran').addEventListener('change', function () {
+            const level = this.value; // Ambil level yang dipilih
+            const tatibSelect = document.getElementById('tatib');
+            tatibSelect.innerHTML = ''; // Kosongkan dropdown Pelanggaran
 
-        // Filter data tata tertib sesuai level
-        const filteredData = tataTertibData.filter(item => item.level_tatib == level);
+            // Filter data tata tertib sesuai level
+            const filteredData = tataTertibData.filter(item => item.level_tatib == level);
 
-        // Tambahkan data baru ke dropdown
-        filteredData.forEach(tatib => {
-            const option = document.createElement('option');
-            option.value = tatib.id_tata_tertib;
-            option.textContent = tatib.deskripsi;
-            tatibSelect.appendChild(option);
+            // Tambahkan data baru ke dropdown
+            filteredData.forEach(tatib => {
+                const option = document.createElement('option');
+                option.value = tatib.id_tata_tertib;
+                option.textContent = tatib.deskripsi;
+                tatibSelect.appendChild(option);
+            });
         });
-    });
-</script>
+    </script>
 
 
 </body>

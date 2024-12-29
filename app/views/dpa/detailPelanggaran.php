@@ -85,7 +85,7 @@
         <div class="overflow-x-auto overflow-y-auto max-h-[500px]">
             <!-- Edit Form Pelanggaran -->
             <div class="flex flex-end justify-end">
-                <a href= "./1/edit"  class="w-32 bg-[#132145] text-white py-2 px-4 rounded-md hover:bg-blue-700 flex items-center">
+                <a href= "./<?= $this->idPelanggaran ?>/edit"  class="w-32 bg-[#132145] text-white py-2 px-4 rounded-md hover:bg-blue-700 flex items-center">
                 <i class="fa-solid fa-pen pl-0 pr-2"></i>
                 <span class="pl-2">Edit </span>
                 </a>
