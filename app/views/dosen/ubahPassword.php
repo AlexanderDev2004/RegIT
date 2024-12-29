@@ -114,6 +114,7 @@
         </form>
     </div>
     <!-- Edit Password End -->
+     
      <!-- Footer -->
     <?php include "./app/views/components/footer.php"?>
     <!-- End Footer -->

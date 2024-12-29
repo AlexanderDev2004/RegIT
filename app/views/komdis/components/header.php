@@ -8,8 +8,8 @@
             <i class="fa-solid fa-circle-user text-4xl"></i>
             <div class="">
                 <a href="profil">
-                    <h5>Komdis23</h5>
-                    <h5>12301901 1 005</h5>
+                    <h5><?= $_SESSION["name"] ?? "Session Expired" ?></h5>
+                    <h5><?= $_SESSION["id_pegawai"] ?? "" ?></h5>
                 </a>
             </div>
         </section>
