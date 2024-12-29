@@ -7,8 +7,7 @@ class MPelanggaranModel extends Model {
     public function getDataPelanggaran($nim) : array {
         $dataPelanggaran = [];
         
-        $sql = "
-            SELECT 
+        $sql = "SELECT 
                 p.tgl_pelanggaran,
                 tt.deskripsi AS deskripsi_pelanggaran,
                 tt.level_tatib AS tingkat,
@@ -20,8 +19,7 @@ class MPelanggaranModel extends Model {
             INNER JOIN status_pelanggaran sp ON p.id_status_pelanggaran = sp.id_status_pelanggaran
             LEFT JOIN sanksi s ON p.id_pelanggaran = s.id_pelanggaran
             WHERE p.nim = ?
-            ORDER BY p.tgl_pelanggaran DESC
-        ";
+            ORDER BY p.tgl_pelanggaran DESC";
 
         $stmt = sqlsrv_query($this->db, $sql, [$nim]);
         if ($stmt) {
