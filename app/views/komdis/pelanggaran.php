@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -69,7 +68,7 @@
     <!-- Sidebar End -->
 
     <!-- Main Content -->
-    <div id="Pelanggaran"class="flex justify-center items-center pt-8">
+    <div id="Pelanggaran" class="flex justify-center items-center pt-8">
        <p class="font-bold text-3xl flex text-center items-center text-[#132145] ml-8 flex flex-col justify-center">Analisa Pelanggaran</p>
     </div>
 
@@ -90,32 +89,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white">
-                        <td class="border border-blue-200 px-4 py-2 text-center">1</td>
-                        <td class="border border-blue-200 px-4 py-2">IRSA</td>
-                        <td class="border border-blue-200 px-4 py-2">12-11-2024</td>
-                        <td class="border border-blue-200 px-4 py-2">Terlibat dalam tindakan kriminal dan dinyatakan bersalah oleh pengadilan.</td>
-                        <td class="border border-blue-200 px-4 py-2">Dinonaktifkan selama dua semester atau diberhentiksn sebagai mahasiswa.</td>
-                        <td class="border border-blue-200 px-4 py-2 text-center">12-11-2024</td>
-                        <td class="border border-blue-200 px-4 py-2 text-center">Belum Selesai</td>
-                        <td class="border border-blue-200 px-4 py-2 text-center">Cuti</td>
-                        <td class="border border-blue-200 px-4 py-2 text-center">
-                            <div class="flex flex-row justify-center space-x-2"> 
-                                <button type="button" onclick="window.location.href='detailPelanggaran.php'" 
-                                    class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                    <img src="../../Public/Details.svg" alt="" class="">
-                                    <span class="ml-2">Detail</span>    
-                                </button>
-                                <button type="button" 
-                                    class="flex flex-row w-28 px-4 py-2 bg-[#FF3B30] text-white font-semibold rounded-lg shadow-md ml-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
-                                    <img src="../../Public/Trash.svg" alt="">
-                                    <span class="ml-2">Hapus</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php if (!empty($dataPelanggaran)): ?>
+                        <?php 
+                        $no = 1;
+                        foreach ($dataPelanggaran as $pelanggaran) : ?>
+                            <tr class="bg-white">
+                                <td class="border border-blue-200 px-4 py-2 text-center"><?= $no++ ?></td>
+                                <td class="border border-blue-200 px-4 py-2"><?= $pelanggaran['nama_mahasiswa'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2"><?= $pelanggaran['tgl_pelanggaran'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2"><?= $pelanggaran['deskripsi'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2"><?= $pelanggaran['jenis_sanksi'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2 text-center"><?= $pelanggaran['tgl_sanksi'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2 text-center"><?= $pelanggaran['status_pelanggaran'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2 text-center"><?= $pelanggaran['status_mahasiswa'] ?></td>
+                                <td class="border border-blue-200 px-4 py-2 text-center">
+                                    <div class="flex flex-row justify-center space-x-2"> 
+                                        <button type="button" onclick="getDetailPelanggaran(<?= $pelanggaran['id_pelanggaran'] ?>)"
+                                            class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                            <img src=".././Public/Details.svg" alt="" class="">
+                                            <span class="ml-2">Detail</span>    
+                                        </button>
+                                        <button type="button" 
+                                            class="flex flex-row w-28 px-4 py-2 bg-[#FF3B30] text-white font-semibold rounded-lg shadow-md ml-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                            <img src=".././Public/Trash.svg" alt="">
+                                            <span class="ml-2">Hapus</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="7" class="border border-[#132145] px-4 py-2 text-center">Tidak ada data pelanggaran.</td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
-                </thead>
             </table>
         </div>
     </div>
@@ -123,5 +131,11 @@
     <!-- Footer -->
     <?php include "./app/views/components/footer.php"?>
     <!-- Footer End -->
+
+    <script>
+        function getDetailPelanggaran(idPelanggaran){
+            window.location.href='./pelanggaran/' + idPelanggaran;
+        }
+    </script>
 </body>
 </html>

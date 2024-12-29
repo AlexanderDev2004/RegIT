@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelanggaran</title>
+    <title>Profile Komdis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -85,19 +85,24 @@
         
         <!-- Edit Password End -->
 
-        <div class="overflow-x-auto gap-x-0 gap-y-8">
+        <!-- tampilkan profil komdis -->
+        <?php if (isset($data)): ?>
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">NIP</span>
-                <p class="ml-8 text-gray-600">12801901 1 005</p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['id_pegawai'] ?? "-"); ?></p>
             </div>
+
             <div class="mt-8 mb-6">
                 <span class="font-bold text-[#132145] ml-8">Nama</span>
-                <p class="ml-8 text-gray-600">Komdis23</p>
+                <p class="ml-8 text-gray-600"><?php echo htmlspecialchars($data['nama_pegawai'] ?? "-"); ?></p>
             </div>
-        </div>
+        <?php else: ?>
+            <p class="ml-8 text-red-600">Data komdis tidak ditemukan!</p>
+        <?php endif; ?>
+        
         <!-- Logout Button -->
          <div class="flex mt-10">
-            <a href="../login" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
+            <a href="./profil/logout" class="flex flex-row bg-red-500 w-48 text-white py-2 px-4 rounded-md hover:bg-red-600">
                 <img src=".././public/logout.svg" alt="" class="ml-2">
                     <span class="pl-2">Logout</span>
             </a>

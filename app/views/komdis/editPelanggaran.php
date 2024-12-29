@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelanggaran</title>
+    <title>Edit Data Pelanggaran</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -76,76 +75,72 @@
     <!-- Content -->
     <div class="bg-white p-6 rounded-lg shadow-md w-full lg:w-3/4 ml-80 mt-8">
         <div class="overflow-x-auto overflow-y-auto max-h-[500px]">
-            <div class="mb-4">
+        <div class="mb-4">
                 <label for="NIM" class="block text-sm font-bold text-[#132145] mb-2 ml-8">NIM</label>
-                <input type="text" id="NIM" value="2341720220" readonly class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" id="NIM" value="<?= $dataPelanggaran["nim"] ?>" readonly class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <div class="overflow-x-auto grid grid-cols-2 gap-x-0 gap-y-8">
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Nama Mahasiswa</span>
-                    <p class="ml-8 text-gray-600">IRSA</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nama_mahasiswa"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Angkatan</span>
-                    <p class="ml-8 text-gray-600">2023</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["angkatan"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Prodi</span>
-                    <p class="ml-8 text-gray-600">DIV Teknik Informatika</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nama_prodi"] ?></p>
                 </div>
                 <div class="mt-6 ">
                     <span class="font-bold text-[#132145] ml-8">Kelas</span>
-                    <p class="ml-8 text-gray-600">2H</p>
+                    <p class="ml-8 text-gray-600"><?= $dataPelanggaran["nama_kelas"] ?></p>
                 </div>
                 <div>
                     <div class="flex mt-6 mb-2">
                         <div class="font-bold text-[#132145] ml-8">Bukti Pelanggaran</div>
                     </div>
                     <button class="bg-white text-blue-400 text-sm ml-8 flex-row">
-                        <p>bukti.jpg</p>
+                        <p><?= $dataPelanggaran["file_name"] ?></p>
                     </button>
                 </div>
             </div>
 
             <div>
-                <div class="mt-6 flex flex-col">
-                    <label for="pelanggaran" class="font-bold text-[#132145] ml-8">Tingkat Pelanggaran</label>
-                    <select id="pelanggaran" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                        <option value="4">IV</option>
-                        <option value="5">V</option>
-                    </select>
-                </div>
-                <div class="mt-6 flex flex-col">
-                    <label for="tanggal" class="font-bold text-[#132145] ml-8">Tanggal Pelanggaran</label>
-                        <input type="text" id="tanggal" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="12-11-2024">
-                    </label>
-                </div>
-                <div class="flex mt-6 flex flex-col">
-                    <label for="sanksi" class="font-bold text-[#132145] ml-8">Pelanggaran</label>
-                    <select id="sanksi" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="1">Berbusana tidak sopan dan tidak rapi (misalnya memakai kaos tidak berkerah, rok mini, sandal, dll).</option>
-                        <option value="2">Merokok di area kampus</option>
-                        <option value="3">Terlibat dalam tindakan kriminal dan dinyatakan bersalah oleh pengadilan.</option>
-                    </select>
-                </div>
+            <div class="mt-6 flex flex-col">
+                <label for="pelanggaran" class="font-bold text-[#132145] ml-8">Tingkat Pelanggaran</label>
+                <select id="pelanggaran" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="1" <?= $dataPelanggaran["level_tatib"] == "1" ? "selected" : "" ?>>1</option>
+                    <option value="2" <?= $dataPelanggaran["level_tatib"] == "2" ? "selected" : "" ?>>2</option>
+                    <option value="3" <?= $dataPelanggaran["level_tatib"] == "3" ? "selected" : "" ?>>3</option>
+                </select>
+            </div>
+            <div class="flex mt-6 flex flex-col">
+                <label for="tatib" class="font-bold text-[#132145] ml-8">Pelanggaran</label>
+                <select id="tatib" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <!-- Data pelanggaran akan dimuat secara dinamis -->
+                </select>
+            </div>
+            </div>
+            <div class="mt-6 flex flex-col">
+                <label for="tanggal" class="font-bold text-[#132145] ml-8">Tanggal Pelanggaran</label>
+                    <input type="text" id="tanggal" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="<?= date_format($dataPelanggaran["tgl_pelanggaran"], "d-m-Y") ?>">
+                </label>
             </div>
             <div>
                 <div class="flex mt-6 flex flex-col">
                     <label for="sanksi" class="font-bold text-[#132145] ml-8">Sanksi</label>
-                    <select id="sanksi" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="1">Dinonaktifkan selama dua semester atau diberhentiksn sebagai mahasiswa.</option>
-                        <option value="2">Teguran lisan disertai surat pernyataan bermaterai yang ditandatangani mahasiswa dan DPA</option>
-                        <option value="3">Teguran tertulis disertai surat pernyataan bermaterai yang ditandatangani mahasiswa dan DPA</option>
-                    </select>
+                    <!-- <select id="sanksi" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="1">Teguran lisan disertai surat pernyataan bermaterai yang ditandatangani mahasiswa dan DPA</option>
+                        <option value="2">Teguran tertulis disertai surat pernyataan bermaterai yang ditandatangani mahasiswa dan DPA</option>
+                    </select> -->
+                    <input type="text" id="sanksi" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="<?= $dataPelanggaran["jenis_sanksi"] ?>">
                 </div>
             </div>
             <div>
                 <div class="mt-6 flex flex-col">
                     <label for="tanggalsanksi" class="font-bold text-[#132145] ml-8">Tanggal Sanksi</label>
-                        <input type="text" id="tanggalsanksi" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="12-11-2024">
+                        <input type="text" id="tanggalsanksi" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="<?= $dataPelanggaran["tgl_sanksi"] !== null ? date_format($dataPelanggaran["tgl_sanksi"], "d-m-Y") : "" ?>">
                     </label>
                 </div>
             </div>
@@ -156,24 +151,16 @@
                     <option value="2">Selesai</option>
                 </select>
             </div>
-            <div class="flex mt-6 flex-col">
-                <label for="statusmhs" class="font-bold text-[#132145] ml-8">Status Mahasiswa</label>
-                <select id="statusmhs" class="w-3/4 px-3 py-2 ml-8 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="1">Cuti</option>
-                    <option value="2">Aktif</option>
-                    <option value="3">Tidak Aktif</option>
-                </select>
-            </div>
             <div class="flex flex-row mt-4">
                 <button onclick="window.location.href='detailPelanggaran.php'"
                 class="mt-4 ml-8 bg-[#34C759] px-4 py-2 text-center flex flex-row w-32 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" >
-                    <img src="../../public/simpan.svg" alt="">
+                    <img src="../../../public/simpan.svg" alt="">
                     <span class="ml-2">Simpan</span>
                 </button>
                 <button
-                onclick="window.location.href='detailPelanggaran.php'" 
+                onclick="window.location.href='.././<?= $getIdPelanggaran ?>'" 
                 class="mt-4 ml-8 bg-[#132145] px-4 py-2 text-center flex flex-row w-32 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    <img src="../../public/Back.svg" alt="">
+                    <img src="../../../public/Back.svg" alt="">
                     <span class="ml-2">Kembali</span>
                 </button>
             </div>
@@ -182,7 +169,51 @@
     </div>
 
     <!-- Footer -->
-    <?php include "../components/Footer.php"?>
+    <?php include "./app/views/components/footer.php"?>
     <!-- Footer End -->
+
+    <script>
+        let tataTertibData = <?= json_encode($listTatib); ?>; // Kirim data tata tertib dari PHP ke JavaScript
+
+        // Isi dropdown 'tatib' dengan data yang sudah ada dari PHP
+        document.addEventListener("DOMContentLoaded", function() {
+            const tatibSelect = document.getElementById('tatib');
+            
+            // Kosongkan dropdown 'tatib' sebelum mengisi
+            tatibSelect.innerHTML = '';
+
+            // Ambil level_tatib yang sudah dipilih sebelumnya
+            const levelTingkatPelanggaran = "<?= $dataPelanggaran['level_tatib']; ?>";
+
+            // Filter data tata tertib sesuai dengan level yang sudah dipilih
+            const filteredData = tataTertibData.filter(item => item.level_tatib == levelTingkatPelanggaran);
+
+            // Isi dropdown 'tatib' dengan data yang sudah dipilih
+            filteredData.forEach(tatib => {
+                const option = document.createElement('option');
+                option.value = tatib.id_tata_tertib;
+                option.textContent = tatib.deskripsi;
+                tatibSelect.appendChild(option);
+            });
+        });
+
+        // Event listener untuk dropdown Tingkat Pelanggaran
+        document.getElementById('pelanggaran').addEventListener('change', function () {
+            const level = this.value; // Ambil level yang dipilih
+            const tatibSelect = document.getElementById('tatib');
+            tatibSelect.innerHTML = ''; // Kosongkan dropdown Pelanggaran
+
+            // Filter data tata tertib sesuai level
+            const filteredData = tataTertibData.filter(item => item.level_tatib == level);
+
+            // Tambahkan data baru ke dropdown
+            filteredData.forEach(tatib => {
+                const option = document.createElement('option');
+                option.value = tatib.id_tata_tertib;
+                option.textContent = tatib.deskripsi;
+                tatibSelect.appendChild(option);
+            });
+        });
+    </script>
 </body>
 </html>

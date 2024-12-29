@@ -209,6 +209,10 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/komdis/KEditProfilController.php';
         $controller = new KEditProfilController();
         $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'logout') {
+        require_once './app/controllers/komdis/KProfilController.php';
+        $controller = new KProfilController();
+        $controller->logout();
     } else if ($urlSegments[0] === 'admin' && $urlSegments[1] === 'data-mahasiswa' && is_numeric($urlSegments[2])) {
         require_once './app/controllers/admin/ADetailMController.php';
         $controller = new ADetailMController($urlSegments[2]);
@@ -239,6 +243,10 @@ if(count($urlSegments) === 1 || empty($urlSegments)){
         require_once './app/controllers/komdis/KEditPelanggaranController.php';
         $controller = new KEditPelanggaranController($urlSegments[2]);
         $controller->index();
+    } else if ($urlSegments[0] === 'komdis' && $urlSegments[1] === 'profil' && $urlSegments[2] === 'edit' && $urlSegments[3] === 'submit') {
+        require_once './app/controllers/komdis/KEditProfilController.php';
+        $controller = new KEditProfilController();
+        $controller->submitNewPassword();
     } else {
         require_once './app/controllers/not_found/NotFoundController.php';
         $controller = new NotFoundController();
