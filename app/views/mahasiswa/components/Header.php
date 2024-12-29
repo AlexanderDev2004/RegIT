@@ -9,8 +9,8 @@
         <i class="fa-solid fa-circle-user text-4xl"></i>
         <div class="">
             <a href="profil">
-            <h5>Fiera Zaidattun N.</h5>
-            <h5>2341720220</h5>
+            <h5><?= $_SESSION["name"] ?? "Session Expired"?></h5>
+            <h5><?= $_SESSION["nim"] ?? "" ?></h5>
             </a>
         </div>
     </section>

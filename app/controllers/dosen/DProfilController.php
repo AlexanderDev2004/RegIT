@@ -6,26 +6,29 @@ require_once __DIR__ . '/../Controller.php';
 class DProfilController extends Controller {
 
     public function index() {
+        session_start();
+        
+        // Mengecek jika pengguna sudah login
+        if (!isset($_SESSION['id_pegawai'])) {
+            header("Location: " . BASE_URL . "/login");
+            exit();
+        }
+
+        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
+        $this->checkExpireSession();
+        
+        $data = $this->showProfilDosen($_SESSION['id_pegawai']);
+
         // Memuat file view untuk halaman beranda
         require_once './app/views/dosen/profildosen.php';
     }
 
     public function showProfilDosen($nip) {
-        // Membuat instance dari ProfilDosenModel
-        $profilModel = new DProfilDosenModel();
+        // Membuat instance dari ProfilDpaModel
+        $profilModel = new DProfilModel();
         
-        // Mengambil data profil dosen berdasarkan NIP
-        $profilDosen = $profilModel->getProfilDosenByNIP($nip);
-        
-        if ($profilDosen && $profilDosen->num_rows > 0) {
-            // Jika ada data, ambil data pertama
-            $data = $profilDosen->fetch_assoc();
-            // Kirim data ke view
-            include 'app/views/dosen/profildosen.php';  
-        } else {
-            // Data tidak ditemukan, tampilkan pesan error
-            echo "Data dosen tidak ditemukan!";
-        }
+        // Mengembalikan data profil dpa berdasarkan NIP
+        return $profilModel->getProfilDosenByNIP($nip) ?? [];
     }
 
 }

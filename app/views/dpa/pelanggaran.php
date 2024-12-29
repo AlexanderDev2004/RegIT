@@ -1,7 +1,3 @@
-<?php 
-require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +29,6 @@ require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
 
     <!-- Navbar -->
     <?php 
-    $idPegawai = $_SESSION['id_pegawai'];
     include "components/header.php"
     ?>     
     <!-- Navbar End -->
@@ -95,6 +90,7 @@ require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
                         <th class="border border-blue-200 px-4 py-2">Sanksi</th>
                         <th class="border border-blue-200 px-4 py-2">Tanggal Sanksi</th>
                         <th class="border border-blue-200 px-4 py-2">Status Pelanggaran</th>
+                        <th class="border border-blue-200 px-4 py-2">Pelapor</th>
                         <th class="border border-blue-200 px-4 py-2">Lainnya</th>
                     </tr>
                 </thead>
@@ -128,15 +124,16 @@ require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
                     <tr class="bg-white">
                         <td class="border border-blue-200 px-4 py-2 text-center"><?= $i++ ?></td>
                         <td class="border border-blue-200 px-4 py-2"><?= $data["nama_mahasiswa"] ?></td>
-                        <td class="border border-blue-200 px-4 py-2"><?= date_format($data["tgl_pelanggaran"], "Y-m-d") ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= date_format($data["tgl_pelanggaran"], "d-m-Y") ?></td>
                         <td class="border border-blue-200 px-4 py-2"><?= $data["deskripsi"] ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["level_tatib"] ?></td>
                         <td class="border border-blue-200 px-4 py-2"><?= $data["jenis_sanksi"] ?></td>
-                        <td class="border border-blue-200 px-4 py-2 text-center"><?= date_format($data["tgl_sanksi"], "Y-m-d") ?></td>
+                        <td class="border border-blue-200 px-4 py-2 text-center"><?= date_format($data["tgl_sanksi"], "d-m-Y") ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center"><?= $data["status_pelanggaran"] ?></td>
+                        <td class="border border-blue-200 px-4 py-2"><?= $data["nama_pegawai"] ?></td>
                         <td class="border border-blue-200 px-4 py-2 text-center">
                             <div class="flex justify-center space-x-2"> 
-                                <button type="button" onclick="window.location.href='./pelanggaran/1'" 
+                                <button type="button" onclick="getDetailPelanggaran(<?= $data['id_pelanggaran'] ?>)"
                                     class="flex items-center w-28 px-4 py-2 bg-[#132145] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                     <img src=".././public/Details.svg" alt="" class="">
                                     <span class="ml-2">Detail</span>    
@@ -154,5 +151,11 @@ require_once __DIR__ . '/../../controllers/dpa/DPPelanggaranController.php';
             </table>
         </div>
     </div>
+
+    <script>
+        function getDetailPelanggaran(idPelanggaran){
+            window.location.href='./pelanggaran/' + idPelanggaran;
+        }
+    </script>
 </body>
 </html>
