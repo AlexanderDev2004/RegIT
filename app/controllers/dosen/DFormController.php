@@ -41,7 +41,7 @@ class DFormController extends Controller {
         $IdStatusPelanggaran = (int) $_POST['status_pelanggaran'];
         $IdPegawai = $_SESSION['id_pegawai']; // Pastikan session id_pegawai sudah ada
         $IdTataTertib = (int) $_POST['pelanggaran'];
-        $TglPelanggaran = date('Y-m-d H:i:s', strtotime($_POST['tanggal'])); // Format datetime untuk SQL Server
+        $TglPelanggaran = date('Y-m-d H:i:s', strtotime($_POST['tanggal']));// Format datetime untuk SQL Server
 
         $FileName = $_FILES['image']['name'];
         $ImageData = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
