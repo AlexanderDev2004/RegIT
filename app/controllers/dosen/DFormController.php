@@ -4,6 +4,7 @@ require_once __DIR__ . '/../Controller.php';
 
 class DFormController extends Controller {
     
+
     public function index() {
         session_start();
         
@@ -18,15 +19,7 @@ class DFormController extends Controller {
     }
 
     public function createLaporanPelanggaran() {
-        session_start(); // Pastikan session sudah dimulai
-
         $model = new DFormDosenModel();
-
-        // Debugging: Cetak data POST dan FILES
-        echo "<pre>";
-        print_r($_POST);
-        print_r($_FILES);
-        echo "</pre>";
 
         // Validasi dan ambil data dari form
         if (!isset($_POST['nim'], $_POST['status_pelanggaran'], $_POST['pelanggaran'], $_POST['tanggal'], $_FILES['image'])) {
@@ -53,7 +46,7 @@ class DFormController extends Controller {
         $model->CreateLaporanPelanggaranDosen($Nim, $IdStatusPelanggaran, $IdPegawai, $IdTataTertib, $TglPelanggaran, $FileName, $ImageData);
 
         // Redirect dengan pesan sukses
-        header("Location: " . BASE_URL . "/dosen?success=1");
+        header("Location: " . BASE_URL . "/dosen/form");
         exit();
     }
 }
