@@ -4,7 +4,7 @@
 // YANG BISA DIGUNAKAN DI SELURUH APLIKASI
 
 // Konfigurasi URL
-define('BASE_URL', 'http://localhost/RegIT');
+define('BASE_URL', 'http://localhost:8080/RegIT');
 
 // Konfigurasi Database
 define('DB_SERVER', 'LAPTOP-MHVH0S2R');
