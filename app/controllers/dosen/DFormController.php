@@ -19,26 +19,7 @@ class DFormController extends Controller {
     }
 
     public function createLaporanPelanggaran() {
-        session_start(); // Pastikan session sudah dimulai
-
         $model = new DFormDosenModel();
-
-        if (!isset($_SESSION['id_pegawai'])) {
-            header("Location: " . BASE_URL . "/dosen");
-            exit();
-        }
-
-        // Mengecek apakah user masih aktif di sesion ini selama 30 menit
-        $this->checkExpireSession();
-
-        // Memuat file view untuk halaman form
-        require_once './app/views/dosen/formDosen.php';
-        
-        // Debugging: Cetak data POST dan FILES
-        // echo "<pre>";
-        // print_r($_POST);
-        // print_r($_FILES);
-        // echo "</pre>";
 
         // Validasi dan ambil data dari form
         if (!isset($_POST['nim'], $_POST['status_pelanggaran'], $_POST['pelanggaran'], $_POST['tanggal'], $_FILES['image'])) {
@@ -65,7 +46,7 @@ class DFormController extends Controller {
         $model->CreateLaporanPelanggaranDosen($Nim, $IdStatusPelanggaran, $IdPegawai, $IdTataTertib, $TglPelanggaran, $FileName, $ImageData);
 
         // Redirect dengan pesan sukses
-        header("Location: " . BASE_URL . "/dosen?success=1");
+        header("Location: " . BASE_URL . "/dosen/form");
         exit();
     }
 }

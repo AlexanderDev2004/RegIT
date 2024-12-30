@@ -51,13 +51,13 @@
                 </svg>
                     <span class="">Beranda</span>                   
                 </a>
-                <a href="form" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600">
+                <a href="form" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600 bg-[#F99D1C]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2038 10.7957L18.9998 8.9997C19.545 8.45445 19.8176 8.18182 19.9634 7.88773C20.2407 7.32818 20.2407 6.67122 19.9634 6.11167C19.8176 5.81757 19.545 5.54495 18.9998 4.9997C18.4545 4.45445 18.1819 4.18182 17.8878 4.03609C17.3282 3.7588 16.6713 3.7588 16.1117 4.03609C15.8176 4.18182 15.545 4.45445 14.9998 4.9997L13.1811 6.81835C14.145 8.46895 15.5311 9.84451 17.2038 10.7957ZM11.7267 8.27281L4.85615 15.1433C4.43109 15.5684 4.21856 15.7809 4.07883 16.042C3.93909 16.3031 3.88015 16.5978 3.76226 17.1873L3.14686 20.2643C3.08034 20.5969 3.04708 20.7632 3.14168 20.8578C3.23629 20.9524 3.4026 20.9191 3.73521 20.8526L6.81219 20.2372C7.40164 20.1193 7.69637 20.0604 7.95746 19.9206C8.21856 19.7809 8.43109 19.5684 8.85615 19.1433L15.7456 12.2539C14.1239 11.2383 12.7522 9.87597 11.7267 8.27281Z" fill="white"/>
                 </svg>
                     <span class="">Form</span>
                 </a>
-                <a href="pelanggaran" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600 bg-[#F99D1C]">
+                <a href="pelanggaran" target="" class="flex items-center gap-4 px-6 py-3 mb-2 bg-[#132145] rounded-lg text-white rounded-lg text-sm font-bold hover:bg-yellow-600">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18ZM4 10H14V8H4V10Z" fill="white"/>
                 </svg>
